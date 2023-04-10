@@ -13,6 +13,38 @@
         <!-- Styles -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <style>
+input[type=text], select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 5px;
+}
+</style>
+        <style>
             .form {
                 display: flex;
                 justify-content: center;
@@ -26,6 +58,7 @@
                 margin-top: 1.5rem;
             }
         </style>
+
     </head>
     <body>
         <div class="container mt-5">
@@ -41,15 +74,13 @@
                             </button>
                         </div>
                         <div class="col-md-12">
+                            <div class="output" style="width: 100%"></div>
                             <form class="form" method="Post" action="{{ route('save') }}">
                                 @csrf
-                                <input type="text" class="form-control" id="latitude" name="lat" readonly>
-                                <input type="text" class="form-control" id="longitude" name="long" readonly>
+                                <input type="text" class="form-control" id="latitude" name="lat" readonly hidden>
+                                <input type="text" class="form-control" id="longitude" name="long" readonly hidden>
                                 <input type="submit" class="btn btn-danger" value="حفظ" id="save">
-
                             </form>
-                            <div class="output" style="width: 100%">
-                            </div>
                             <form>
                                 <div class="mb-3">
                                     <label for="usernumber" class="form-label">رقم اليوزر </label>

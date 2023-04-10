@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('test');
+    return view('googleMap');
 });
 
 Route::post('/save', function (Request $request) {

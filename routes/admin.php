@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| admin Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -14,24 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('dashboard', [HomeController::class, 'admin'])->name('dashboard');
 });
-
-// main Page website (All users)
-
-// admin routes
-
-
-// watcher routes
-
-// agent routes
-
-
-Route::post('/save', function (Request $request) {
-    return $request;
-})->name('save');
-
-Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

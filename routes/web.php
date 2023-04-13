@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,24 +18,44 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*------------------------------------------
+--------------------------------------------
+All Users Routes List
+--------------------------------------------
+--------------------------------------------*/
+
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
-
-// main Page website (All users)
-
-// admin routes
-
-
-// watcher routes
-
-// agent routes
-
-
-Route::post('/save', function (Request $request) {
-    return $request;
-})->name('save');
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/*------------------------------------------
+--------------------------------------------
+All admin Users Routes List
+--------------------------------------------
+--------------------------------------------*/
+
+Route::middleware('auth')->group(function(){
+    Route::get('admin/dashboard', [HomeController::class, 'adminHome'])->name('admin.dashboard');
+});
+
+/*------------------------------------------
+--------------------------------------------
+All Agent Users Routes List
+--------------------------------------------
+--------------------------------------------*/
+
+Route::middleware('auth')->group(function(){
+    Route::get('Agent/dashboard', [HomeController::class, 'agentHome'])->name('Agent.dashboard');
+});
+
+/*------------------------------------------
+--------------------------------------------
+All manager Users Routes List
+--------------------------------------------
+--------------------------------------------*/
+
+Route::middleware('auth')->group(function(){
+    Route::get('manager/dashboard', [HomeController::class, 'managerHome'])->name('manager.dashboard');
+});

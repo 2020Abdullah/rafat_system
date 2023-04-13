@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
 @section('navbar')
-    @include('watcher.layout.navbar')
+    @include('manager.layout.navbar')
 @endsection
 

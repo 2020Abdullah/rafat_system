@@ -21,18 +21,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function admin()
+    public function adminHome()
     {
         return view('admin.dashboard');
     }
 
-    public function agent()
+    public function agentHome()
     {
         return view('Agent.dashboard');
     }
 
-    public function watcher()
+    public function managerHome()
     {
-        return view('watcher.dashboard');
+        return view('manager.dashboard');
     }
 }

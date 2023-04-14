@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Poppins:wght@400;500;600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Poppins:wght@400;500;600&display=swap');
 
 :root {
     --primary-color: #ff5722;
@@ -185,4 +185,16 @@ input:active:focus::placeholder {
     margin-top: 25px;
     text-align: center;
     text-transform: uppercase;
+}
+
+/*
+input form
+==========================
+*/ 
+.custom-file-control, .form-control {
+    padding-right: 5px;
+}
+.table-title-action {
+    display: flex;
+    justify-content: space-between;
 }

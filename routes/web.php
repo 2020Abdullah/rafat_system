@@ -26,8 +26,10 @@ All Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::get('/', function () {
-    return view('auth.login');
+Route::middleware('guest')->group(function(){
+    Route::get('/', function () {
+        return view('auth.login');
+    });
 });
 
 Auth::routes();

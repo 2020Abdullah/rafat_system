@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="bmd-layout-container bmd-drawer-f-l avam-container animated bmd-drawer-in">
-    @include('admin.layout.navbar')
-    @include('admin.layout.sidebar')
+    @include('manager.layout.navbar')
+    @include('manager.layout.sidebar')
     <main class="bmd-layout-content">
         <div class="container-fluid">
             <div class="row  m-1 pb-4 mb-3 ">
@@ -32,7 +32,7 @@
             <div class="jumbotron shade pt-5">
                 <div class="table-title-action">
                     <h3 class="display-4">جدول المطورين</h3>
-                    <a href="{{ route('admin.agent.create') }}" class="btn main f-first fnt-xxs">إضافة مطور مبيعات جديد</a>
+                    <a href="{{ route('manager.agent.create') }}" class="btn main f-first fnt-xxs">إضافة مطور مبيعات جديد</a>
                 </div>
                 <hr/>
                 <div class="table-responsive">
@@ -49,8 +49,8 @@
                                 <td>{{ $Agent->email }}</td>
                             </tr>
                         @empty
-                            <tr>
-                                <td>لا يوجد مطورين تم إضافتهم بعد</td>
+                            <tr class="text-center">
+                                <td colspan="3">لا يوجد مطورين تم إضافتهم بعد</td>
                             </tr>
                         @endforelse
                     </table>

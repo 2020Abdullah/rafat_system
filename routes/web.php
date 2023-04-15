@@ -26,6 +26,10 @@ All Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
+Route::get('/vistors', function(){
+    return view('form');
+});
+
 Route::middleware('guest')->group(function(){
     Route::get('/', function () {
         return view('auth.login');
@@ -71,5 +75,11 @@ All manager Users Routes List
 --------------------------------------------*/
 
 Route::middleware('auth')->group(function(){
-    Route::get('manager/dashboard', [HomeController::class, 'managerHome'])->name('manager.dashboard');
+    Route::group(['prefix' => 'manager'], function(){
+        Route::get('dashboard', [HomeController::class, 'managerHome'])->name('manager.dashboard');
+        /* agent control moduls */
+        Route::get('agent/index', [AgentController::class, 'index'])->name('manager.agent.index');
+        Route::get('agent/add', [AgentController::class, 'create'])->name('manager.agent.create');
+        Route::post('agent/store', [AgentController::class, 'store'])->name('manager.agent.store');
+    });
 });

@@ -2,11 +2,11 @@
     @foreach ($errors->all() as $error)
         <script>
             toastr.options = {
-            "closeButton": true,
+            "closeButton": false,
             "debug": false,
             "newestOnTop": false,
             "progressBar": true,
-            "positionClass": "toast-top-right",
+            "positionClass": "toast-top-left",
             "preventDuplicates": false,
             "onclick": null,
             "showDuration": "300",
@@ -30,7 +30,7 @@
         "debug": false,
         "newestOnTop": false,
         "progressBar": true,
-        "positionClass": "toast-top-right",
+        "positionClass": "toast-top-left",
         "preventDuplicates": false,
         "onclick": null,
         "showDuration": "300",
@@ -53,7 +53,7 @@
             "debug": false,
             "newestOnTop": false,
             "progressBar": true,
-            "positionClass": "toast-top-right",
+            "positionClass": "toast-top-left",
             "preventDuplicates": false,
             "onclick": null,
             "showDuration": "300",

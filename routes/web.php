@@ -44,7 +44,7 @@ All admin Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::middleware('auth')->group(function(){
+Route::middleware(['auth' , 'user-role:admin'])->group(function(){
     Route::group(['prefix' => 'admin'] , function(){
         Route::get('dashboard', [HomeController::class, 'adminHome'])->name('admin.dashboard');
         /* admin control moduls*/
@@ -64,7 +64,7 @@ All Agent Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::middleware('auth')->group(function(){
+Route::middleware(['auth' , 'user-role:agent'])->group(function(){
     Route::get('Agent/dashboard', [HomeController::class, 'agentHome'])->name('Agent.dashboard');
 });
 
@@ -74,7 +74,7 @@ All manager Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::middleware('auth')->group(function(){
+Route::middleware(['auth' , 'user-role:manager'])->group(function(){
     Route::group(['prefix' => 'manager'], function(){
         Route::get('dashboard', [HomeController::class, 'managerHome'])->name('manager.dashboard');
         /* agent control moduls */

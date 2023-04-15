@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserRole
@@ -14,17 +15,20 @@ class UserRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, $userType): Response
     {
-        if(auth()->user()->role == 1){
-            return redirect()->route('admin.dashboard');
+        if($userType == 'admin'){
+            RouteServiceProvider::ADMIN;
         }
-        if(auth()->user()->role == 2){
-            return redirect()->route('manager.dashboard');
+        else if ($userType == 'agent'){
+            RouteServiceProvider::AGENT;
         }
-        if(auth()->user()->role == 3){
-            return redirect()->route('Agent.dashboard');
+        else if ($userType == 'manager'){
+            RouteServiceProvider::MANAGER;
         }
-        return redirect()->route('login')->with(['error' => 'غير مسموح لك بالدخول إلي هذه الصفحة .']);
+        else {
+            redirect()->route('login')->with(['error' => 'غير مسموح لك بالدخول إلي هذه الصفحة .']);
+        }
+        return $next($request);
     }
 }

@@ -38,7 +38,7 @@
                         <i class="far fa-bell  fa-lg "></i><span class="badge badge-pill badge-warning animate__animated animate__flash animate__repeat-3 animate__slower animate__delay-2s">5</span>
                     </button>
                     <div aria-labelledby="dropdownMenu2" class="dropdown-menu dropdown-menu-right dropdown-menu dropdown-menu-right-lg">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <span class="dropdown-item dropdown-header">16 Notifications</span>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
                             <i class="far fa-envelope c-main mr-2"></i> 4 new messages
@@ -66,16 +66,16 @@
                         {{auth()->user()->name}}
                     </button>
                     <div aria-labelledby="dropdownMenu4" class="dropdown-menu dropdown-menu-right dropdown-menu dropdown-menu-right">
-                        <button class="dropdown-item" type="button"><i class="far fa-user fa-sm c-main mr-2"></i>Profile</button>
-                        <button onclick="dark()" class="dropdown-item" type="button"><i class="fas fa-moon fa-sm c-main mr-2"></i>Dark Mode</button>
-                        <button class="dropdown-item" type="button"><i class="fas fa-cog fa-sm c-main mr-2"></i>Setting</button>
+                        <button class="dropdown-item" type="button"><i class="far fa-user fa-sm c-main mr-2"></i>الملف الشخصي</button>
+                        <button onclick="dark()" class="dropdown-item" type="button"><i class="fas fa-moon fa-sm c-main mr-2"></i>الوضع المظلم</button>
+                        <button class="dropdown-item" type="button"><i class="fas fa-cog fa-sm c-main mr-2"></i>الإعدادات</button>
                         <button class="dropdown-item" type="button">
                             <i class="fas fa-sign-out-alt c-main fa-sm mr-2"></i>
                             <a class="nav-link d-inline-block" href="https://rafat.test/logout" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                                 تسجيل الخروج
                             </a>    
                             <form id="frm-logout" action="https://rafat.test/logout" method="POST" style="display: none;">
-                                <input type="hidden" name="_token" value="rwvL5ZTvDA7g6ROsh1WjVnNBiZ6itSW9serBaFbG">
+                                @csrf
                             </form>
                         </button>
                     </div>

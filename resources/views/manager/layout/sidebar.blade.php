@@ -3,7 +3,7 @@
     <div class="container-fluid side-bar-container">
         <header class="pb-0">
             <a class="navbar-brand">
-                {{ auth()->user()->name }}
+                {{ auth('manager')->user()->name }}
             </a>
         </header>
         <p class="side-comment">أساسي</p>

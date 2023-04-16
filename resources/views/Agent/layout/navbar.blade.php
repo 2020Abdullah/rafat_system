@@ -63,7 +63,7 @@
             <li class="nav-item">
                 <div class="dropdown">
                     <button class="btn  dropdown-toggle m-0" type="button" id="dropdownMenu4" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{auth('manager')->user()->name}}
+                        {{auth('agent')->user()->name}}
                     </button>
                     <div aria-labelledby="dropdownMenu4" class="dropdown-menu dropdown-menu-right dropdown-menu dropdown-menu-right">
                         <button class="dropdown-item" type="button"><i class="far fa-user fa-sm c-main mr-2"></i>الملف الشخصي</button>

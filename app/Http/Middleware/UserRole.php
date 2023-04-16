@@ -18,16 +18,16 @@ class UserRole
     public function handle(Request $request, Closure $next, $userType): Response
     {
         if($userType == 'admin'){
-            RouteServiceProvider::ADMIN;
+             redirect(RouteServiceProvider::ADMIN);
         }
         else if ($userType == 'agent'){
-            RouteServiceProvider::AGENT;
+             redirect(RouteServiceProvider::AGENT);
         }
         else if ($userType == 'manager'){
-            RouteServiceProvider::MANAGER;
+             redirect(RouteServiceProvider::MANAGER);
         }
         else {
-            redirect()->route('login')->with(['error' => 'غير مسموح لك بالدخول إلي هذه الصفحة .']);
+             redirect()->route('login')->with('error' , 'غير مسموح لك بالدخول إلي هذه الصفحة .');
         }
         return $next($request);
     }

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
+use App\Http\Controllers\Controller;
+use App\Models\Manager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class ManagerController extends Controller
 {
     public function index(){
-        $managers = User::where('role', 2)->get();
+        $managers = Manager::all();
         return view('admin.manager.index', compact('managers'));
     }
     public function create(){
@@ -22,11 +23,10 @@ class ManagerController extends Controller
             'password' => 'required',
         ]);
 
-        User::create([
+        Manager::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => 2,
             'Added_by' => Auth::user()->id
         ]);
 

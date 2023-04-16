@@ -52,6 +52,13 @@
                                 <input type="password" name="password_confirmation" class="form-control" placeholder="تأكيد كلمة المرور"/>
                             </div>
                             <div class="mb-3">
+                                <select name="manager_id" id="manager_id" class="form-select">
+                                    @foreach ($managers as $manager)
+                                        <option value="{{ $manager->id }}">{{ $manager->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
                                 <input type="submit" class="btn flat f-second btn-block fnt-xxs" value="حفظ">
                             </div>
                         </form>

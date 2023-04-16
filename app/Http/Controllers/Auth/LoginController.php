@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
@@ -39,8 +40,6 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    
- 
     public function login(Request $request)
     {   
         $input = $request->all();
@@ -56,31 +55,32 @@ class LoginController extends Controller
             }
            return back()->withErrors($validator->messages());
         }
-     
-        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
-        {
-            if (auth()->user()->role == 1) {
 
-                return redirect()->route('admin.dashboard');
+        // if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password])) {
 
-            }
-            else if (auth()->user()->role == 2) {
+        //     return redirect()->route('admin.dashboard');
+            
+        // }
+        // if (Auth::guard('agent')->attempt(['email' => $request->email, 'password' => $request->password])) {
 
-                return redirect()->route('manager.dashboard');
+        //     return redirect()->route('Agent.dashboard');
+            
+        // }
+        if (auth('web')->attempt(['email' => $request->email, 'password' => $request->password])) {
 
-            }
-            else if (auth()->user()->role == 3) {
+            return redirect()->route('admin.dashboard');
+        }
 
-                return redirect()->route('Agent.dashboard');
+        if ( auth('manager')->attempt(['email' => $request->email, 'password' => $request->password]) ) {
+            return redirect()->route('manager.dashboard');
+        }
 
-            }
-            else{
-                return redirect()->route('login');
-
-            }
-        }else{
-            return redirect()->route('login')
-                ->with('error','Email-Address And Password Are Wrong.');
+        if ( auth('agent')->attempt(['email' => $request->email, 'password' => $request->password]) ) {
+            return redirect()->route('Agent.dashboard');
+        }
+        
+        else {
+            return redirect()->route('login')->with('error','Email-Address And Password Are Wrong.');
         }
           
     }

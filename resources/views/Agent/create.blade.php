@@ -13,8 +13,8 @@
                             <div class="col-lg-8">
                                 <div class="page-header-title text-left-rtl">
                                     <div class="d-inline">
-                                        <h3 class="lite-text ">صفحة المشرفين</h3>
-                                        <span class="lite-text text-gray">إضافة مشرف جديد</span>
+                                        <h3 class="lite-text ">تقرير الزيارة</h3>
+                                        <span class="lite-text text-gray">إنشاء تقرير جديد</span>
                                     </div>
                                 </div>
                             </div>
@@ -33,24 +33,42 @@
                 <div class="col-md-12 mb-3">
                     <div class="jumbotron shade pt-5">
                         <div class="table-title-action">
-                            <h3 class="display-4">إضافة مشرف جديد</h3>
-                            <a href="{{ route('admin.manager.index') }}" class="btn outlined c-third o-third fnt-xxs ">رجوع</a>
+                            <h3 class="display-4">إضافة تقرير جديد</h3>
+                            <a href="{{ route('vistor.index') }}" class="btn outlined c-third o-third fnt-xxs ">رجوع</a>
                         </div>
                         <hr/>
-                        <form method="POST" action="{{route('admin.manager.store')}}">
+                        <form method="POST" action="{{route('vistor.store')}}">
                             @csrf
+                            <input type="hidden" id="latitude" name="lat">
+                            <input type="hidden" id="longitude" name="long">
                             <div class="mb-3">
-                                <input type="text" name="name" class="form-control" placeholder="اسم المشرف"/>
+                                <input type="text" name="vistor_code" class="form-control" placeholder="كود الزيارة"/>
                             </div>
                             <div class="mb-3">
-                                <input type="text" name="email" class="form-control" placeholder="بريد المشرف"/>
+                                <input type="text" name="vistor_phone" class="form-control" placeholder="رقم هاتف صاحب اليوزر"/>
                             </div>
                             <div class="mb-3">
-                                <input type="password" name="password" class="form-control" placeholder="كلمة المرور"/>
+                                <input type="text" name="vistor_balance" class="form-control" placeholder="كم الرصيد في اليوزر"/>
                             </div>
                             <div class="mb-3">
-                                <input type="password" name="password_confirmation" class="form-control" placeholder="تأكيد كلمة المرور"/>
+                                <input type="text" name="vistor_count_slides" class="form-control" placeholder="كم عدد الشرائح الجديدة"/>
                             </div>
+                            <div class="mb-3">
+                                <input type="text" name="vistor_count_activity" class="form-control" placeholder="كم عدد التفعيلات"/>
+                            </div>
+                            <div class="mb-3">
+                                <textarea name="notes" class="form-control" id="notes" cols="20" rows="10" placeholder="ملاحظات"></textarea>
+                            </div>
+
+                            <button type="button" class="btn outlined c-third o-third fnt-xxs" id="location">
+                                 تسجيل موقعك
+                            </button>
+
+                            <div class="mb-3">
+                                <div class="output" style="width: 100%">
+                                </div>
+                            </div>
+
                             <div class="mb-3">
                                 <input type="submit" class="btn flat f-second btn-block fnt-xxs" value="حفظ">
                             </div>
@@ -61,5 +79,29 @@
         </div>
     </main>
 </div>
+@endsection
+
+@section('js')
+<script>
+    $(function(){
+        $("#location").on('click', function(){
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    $('#latitude').val(`${position.coords.latitude}`);
+                    $('#longitude').val(`${position.coords.longitude}`);
+                    $(".output").html(`<iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=${position.coords.latitude}, ${position.coords.longitude}+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe>`);
+                    if($('#latitude').val().length > 0 || $('#longitude').val().length > 0){
+                        $("#location").html('<i class="fa fa-check"></i>')
+                    }
+                },
+                function(failure) {
+                    if(failure.message.indexOf("Only secure origins are allowed") == 0) {
+                        alert('Only secure origins are allowed by your browser.');
+                    }
+                }
+            )
+        })
+    })
+</script>
 @endsection
 

@@ -69,6 +69,7 @@ Route::middleware(['auth:agent' , 'user-role:agent'])->group(function(){
     Route::get('Agent/dashboard', [HomeController::class, 'agentHome'])->name('Agent.dashboard');
     Route::get('visitors', [VistorsController::class, 'index'])->name('vistor.index');
     Route::get('visitors/create', [VistorsController::class, 'create'])->name('vistor.create');
+    Route::post('visitors/store', [VistorsController::class, 'store'])->name('vistor.store');
 });
 
 /*------------------------------------------

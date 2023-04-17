@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 14, 2023 at 11:03 PM
+-- Generation Time: Apr 17, 2023 at 01:02 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.0
 
@@ -24,6 +24,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `agents`
+--
+
+CREATE TABLE `agents` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `manager_id` bigint UNSIGNED NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `agents`
+--
+
+INSERT INTO `agents` (`id`, `name`, `email`, `email_verified_at`, `password`, `manager_id`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Ali', 'Agent@example.com', NULL, '$2y$10$VqFDioekszys0MUtaqqO4OISoYyQ5132dz5a2ZLhCht4sg2lQeabm', 1, NULL, '2023-04-15 23:14:33', '2023-04-15 23:14:33'),
+(2, 'Shawqi', 'Agent2@example.com', NULL, '$2y$10$Ohl6rf4GDqBO8rOcz6O3ou48RZS2pJozG3S6P1GdK997oOCJjfFWC', 1, NULL, '2023-04-16 11:20:09', '2023-04-16 11:20:09');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -36,6 +62,31 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `managers`
+--
+
+CREATE TABLE `managers` (
+  `id` bigint UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Added_by` int NOT NULL DEFAULT '0',
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `managers`
+--
+
+INSERT INTO `managers` (`id`, `name`, `email`, `email_verified_at`, `password`, `Added_by`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'manager Abdallah', 'manager@example.com', NULL, '$2y$10$p02ESdslIhsDpbn2yT9Ms.HVCqgIuF1BIxtQR6VV667Jy2NX14Z42', 1, NULL, '2023-04-15 23:14:03', '2023-04-15 23:14:03');
 
 -- --------------------------------------------------------
 
@@ -58,7 +109,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2014_10_12_100000_create_password_resets_table', 1),
 (4, '2019_08_19_000000_create_failed_jobs_table', 1),
-(5, '2019_12_14_000001_create_personal_access_tokens_table', 1);
+(9, '2019_12_14_000001_create_personal_access_tokens_table', 2),
+(10, '2023_04_16_003359_create_managers_table', 2),
+(11, '2023_04_17_231041_create_agents_table', 3),
+(13, '2023_04_16_132949_create_vistors_table', 4);
 
 -- --------------------------------------------------------
 
@@ -127,15 +181,49 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `Added_by`, `remember_token`, `created_at`, `updated_at`) VALUES
-(10, 'Static Agent', 'Agent@example.com', NULL, '$2y$10$L5aYM9jIHW04bLQtA3tZ6uCyHhflHZb7/ejnxZyuB6PzCxi2mtpwy', 3, NULL, NULL, '2023-04-12 20:12:47', '2023-04-12 20:12:47'),
-(11, 'Static manager', 'manager@example.com', NULL, '$2y$10$VzlaXs2npOZzJKMSPOR6YumpqnCoJ3MRzEWSbQqxYVLyChLzkWPGi', 2, NULL, NULL, '2023-04-12 20:17:05', '2023-04-12 20:17:05'),
-(28, 'admin@gmail.com', 'admin@gmail.com', NULL, '$2y$10$RxXifa/8va77TzGPVpOyNuyjHIKgwlVGmPBMrWf2umTk7SJHolUd.', 1, NULL, NULL, '2023-04-12 21:14:37', '2023-04-12 21:14:37'),
-(33, 'manager2', 'manager2@gmail.com', NULL, '$2y$10$Dd.7A4PKHZFv6CiVCFMuku8dzdEdhnaN9C.18/WJee7bE.ksn1DrO', 2, 28, NULL, '2023-04-14 20:30:58', '2023-04-14 20:30:58'),
-(34, 'Agent2', 'Agent2@example.com', NULL, '$2y$10$ATfN.QzsYy.sWOMeuuO2fuEY293yTmmmLhkoVYcHuj9FlRsEThGwO', 3, 28, NULL, '2023-04-14 20:57:46', '2023-04-14 20:57:46');
+(1, 'admin@gmail.com', 'admin@gmail.com', NULL, '$2y$10$RxXifa/8va77TzGPVpOyNuyjHIKgwlVGmPBMrWf2umTk7SJHolUd.', 1, NULL, NULL, '2023-04-12 21:14:37', '2023-04-12 21:14:37');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vistors`
+--
+
+CREATE TABLE `vistors` (
+  `id` bigint UNSIGNED NOT NULL,
+  `vistor_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `vistor_phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vistor_balance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vistor_count_slides` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vistor_count_activity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `long` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `Agent_id` bigint UNSIGNED NOT NULL,
+  `manager_id` bigint UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `vistors`
+--
+
+INSERT INTO `vistors` (`id`, `vistor_code`, `vistor_phone`, `vistor_balance`, `vistor_count_slides`, `vistor_count_activity`, `lat`, `long`, `notes`, `Agent_id`, `manager_id`, `created_at`, `updated_at`) VALUES
+(1, '2001', '01093252132123', '1000', '10', '5', '30', '31', 'تمت عملية البيع بنجاح', 1, 1, '2023-04-16 21:43:24', '2023-04-16 21:43:24'),
+(2, '2002', '0184124512321', '2000', '20', '10', '30.1473321', '31.3484014', 'تمت عملية البيع بنجاح', 1, 1, '2023-04-16 22:04:54', '2023-04-16 22:04:54');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `agents`
+--
+ALTER TABLE `agents`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `agents_email_unique` (`email`),
+  ADD KEY `agents_manager_id_foreign` (`manager_id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -143,6 +231,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `ro
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `managers`
+--
+ALTER TABLE `managers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `managers_email_unique` (`email`);
 
 --
 -- Indexes for table `migrations`
@@ -178,8 +273,22 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `vistors`
+--
+ALTER TABLE `vistors`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `vistors_agent_id_foreign` (`Agent_id`),
+  ADD KEY `vistors_manager_id_foreign` (`manager_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `agents`
+--
+ALTER TABLE `agents`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -188,10 +297,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `managers`
+--
+ALTER TABLE `managers`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -203,7 +318,30 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `vistors`
+--
+ALTER TABLE `vistors`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `agents`
+--
+ALTER TABLE `agents`
+  ADD CONSTRAINT `agents_manager_id_foreign` FOREIGN KEY (`manager_id`) REFERENCES `managers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `vistors`
+--
+ALTER TABLE `vistors`
+  ADD CONSTRAINT `vistors_agent_id_foreign` FOREIGN KEY (`Agent_id`) REFERENCES `agents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `vistors_manager_id_foreign` FOREIGN KEY (`manager_id`) REFERENCES `managers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

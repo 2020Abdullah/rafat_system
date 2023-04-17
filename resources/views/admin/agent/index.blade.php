@@ -39,15 +39,15 @@
                     <table class="table table-bordered">
                         <tr>
                             <td>رقم المطور</td>
-                            <td>اسم المطور</td>
                             <td>بريد المطور</td>
-                            <td>المشرف</td>
+                            <td>اسم المطور</td>
+                            <td>اسم المشرف</td>
                         </tr>
                         @forelse ($Agents as $Agent)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $Agent->name }}</td>
                                 <td>{{ $Agent->email }}</td>
+                                <td>{{ $Agent->name }}</td>
                                 <td>{{ $Agent->manager->name }}</td>
                             </tr>
                         @empty

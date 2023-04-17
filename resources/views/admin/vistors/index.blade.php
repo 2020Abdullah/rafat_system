@@ -42,8 +42,9 @@
                             <td>رصيد اليوزر</td>
                             <td>عدد الشرائح</td>
                             <td>عدد التفعيلات</td>
-                            <td>المشرف</td>
                             <td>ملاحظات</td>
+                            <td>اسم المطور</td>
+                            <td>اسم المشرف</td>
                             <td>الموقع</td>
                         </tr>
                         @foreach ($Allreports as $reports)
@@ -55,8 +56,9 @@
                                 <td>{{ $reports->vistor_balance }}</td>
                                 <td>{{ $reports->vistor_count_slides }}</td>
                                 <td>{{ $reports->vistor_count_activity }}</td>
-                                <td>{{ $reports->manager->name }}</td>
                                 <td>{{ $reports->notes }}</td>
+                                <td>{{ $reports->agent->name }}</td>
+                                <td>{{ $reports->manager->name }}</td>
                                 <td>
                                     <button  type="button" id="location" class="btn main f-second fnt-xxs" data-bs-toggle="modal" data-bs-target="#location{{ $reports->Agent_id }}">عرض</button>
                                 </td>

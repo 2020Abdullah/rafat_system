@@ -8,7 +8,7 @@
            <!-- form login -->
            <div class="row ">
                <div class="col-md-5 card shade mw-center mh-center">
-                   <img src="{{asset('svg/logo.svg')}}" alt="svg/logo.svg" class="mw-center " height="130" width="300" >
+                   <img src="{{asset('svg/logo.svg')}}" alt="svg/logo.svg" class="mw-center " height="130" width="130" >
                    <hr class="hr-dashed m-0">
                    <form method="POST" action="{{ route('login') }}">
                        @csrf

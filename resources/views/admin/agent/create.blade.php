@@ -53,6 +53,7 @@
                             </div>
                             <div class="mb-3">
                                 <select name="manager_id" id="manager_id" class="form-select">
+                                    <option value="" disabled selected hidden>اسم المشرف</option>
                                     @foreach ($managers as $manager)
                                         <option value="{{ $manager->id }}">{{ $manager->name }}</option>
                                     @endforeach

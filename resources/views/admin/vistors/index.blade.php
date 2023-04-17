@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="bmd-layout-container bmd-drawer-f-l avam-container animated bmd-drawer-in">
-    @include('Agent.layout.navbar')
-    @include('Agent.layout.sidebar')
+    @include('admin.layout.navbar')
+    @include('admin.layout.sidebar')
     @include('layouts.messages')
     <main class="bmd-layout-content">
         <div class="container-fluid">
@@ -31,8 +31,7 @@
             </div>
             <div class="jumbotron shade pt-5">
                 <div class="table-title-action">
-                    <h3 class="display-4">تقارير الزيارات</h3>
-                    <a href="{{ route('vistor.create') }}" class="btn main f-first fnt-xxs">إضافة تقرير جديد</a>
+                    <h3 class="display-4">كل تقارير الزيارات</h3>
                 </div>
                 <hr/>
                 <div class="table-responsive">
@@ -43,6 +42,7 @@
                             <td>رصيد اليوزر</td>
                             <td>عدد الشرائح</td>
                             <td>عدد التفعيلات</td>
+                            <td>المشرف</td>
                             <td>ملاحظات</td>
                             <td>الموقع</td>
                         </tr>
@@ -55,6 +55,7 @@
                                 <td>{{ $reports->vistor_balance }}</td>
                                 <td>{{ $reports->vistor_count_slides }}</td>
                                 <td>{{ $reports->vistor_count_activity }}</td>
+                                <td>{{ $reports->manager->name }}</td>
                                 <td>{{ $reports->notes }}</td>
                                 <td>
                                     <button  type="button" id="location" class="btn main f-second fnt-xxs" data-bs-toggle="modal" data-bs-target="#location{{ $reports->Agent_id }}">عرض</button>

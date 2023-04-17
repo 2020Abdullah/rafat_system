@@ -17,7 +17,7 @@
             <a class="ul-text"><i class="fas fa-cog mr-1"></i> الإعدادات
                 <i class="fas fas fa-chevron-down arrow"></i></a>
             <div class="side-item-container hide animated">
-                <li class="side-item"><a href="./typo.html"><i class="fas fa-angle-right mr-2"></i>الملف الشخصي</a></li>
+                <li class="side-item"><a href="{{route('profile.index')}}"><i class="fas fa-angle-right mr-2"></i>الملف الشخصي</a></li>
             </div>
         </ul>
 

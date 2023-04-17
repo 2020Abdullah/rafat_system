@@ -14,6 +14,7 @@ class Agent extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_img',
         'manager_id'
     ];
 

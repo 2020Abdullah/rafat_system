@@ -13,18 +13,26 @@
                             <div class="col-lg-8">
                                 <div class="page-header-title text-left-rtl">
                                     <div class="d-inline">
-                                        <h3 class="lite-text ">Dashboard</h3>
-                                        <span class="lite-text text-gray">Report and analytics</span>
+                                        <h3 class="lite-text ">الإحصائيات</h3>
+                                        <span class="lite-text text-gray">جميع الإحصائيات</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item "><a href="#"><i class="fas fa-home"></i></a></li>
-                                    <li class="breadcrumb-item active">Dashboard</li>
+                                    <li class="breadcrumb-item active">الرئيسية</li>
                                 </ol>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
+                        <span class="c-first">عدد تقارير الزيارات المسجلة</span>
+                        <span class="h3">{{ $vistorCount }}</span>
                     </div>
                 </div>
             </div>

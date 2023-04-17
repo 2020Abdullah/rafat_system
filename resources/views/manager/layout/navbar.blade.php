@@ -5,7 +5,7 @@
         <!-- <i class="material-Animation">menu</i> -->
     </button>
         <ul class="nav navbar-nav ">
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <div class="dropdown">
                     <button class="btn  dropdown-toggle  m-0" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="far fa-envelope fa-lg"></i><span class="badge badge-pill badge-danger animate__animated animate__flash animate__repeat-3 animate__slower animate__delay-2s">5</span>
@@ -58,26 +58,25 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </div>
-            </li>
-            <li class="nav-item"> <img src="./img/user-profile.jpg" alt="..." class="rounded-circle screen-user-profile"></li>
+            </li> --}}
+            <li class="nav-item"> <img src="{{ asset('/storage/images/'. auth('manager')->user()->profile_img) }}" alt="..." class="rounded-circle screen-user-profile"></li>
             <li class="nav-item">
                 <div class="dropdown">
                     <button class="btn  dropdown-toggle m-0" type="button" id="dropdownMenu4" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{auth('manager')->user()->name}}
                     </button>
                     <div aria-labelledby="dropdownMenu4" class="dropdown-menu dropdown-menu-right dropdown-menu dropdown-menu-right">
-                        <button class="dropdown-item" type="button"><i class="far fa-user fa-sm c-main mr-2"></i>الملف الشخصي</button>
                         <button onclick="dark()" class="dropdown-item" type="button"><i class="fas fa-moon fa-sm c-main mr-2"></i>الوضع المظلم</button>
-                        <button class="dropdown-item" type="button"><i class="fas fa-cog fa-sm c-main mr-2"></i>الإعدادات</button>
-                        <button class="dropdown-item" type="button">
+                        <a href="{{ route('manager.profile.index') }}" class="dropdown-item"><i class="fas fa-cog fa-sm c-main mr-2"></i>الإعدادات</a>
+
+                        <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();" class="dropdown-item">
                             <i class="fas fa-sign-out-alt c-main fa-sm mr-2"></i>
-                            <a class="nav-link d-inline-block" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-                                تسجيل الخروج
-                            </a>    
+                             تسجيل الخروج
                             <form id="frm-logout" action="{{route('logout')}}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-                        </button>
+                        </a>
+
                     </div>
                 </div>
             </li>

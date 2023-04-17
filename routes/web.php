@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminSetController;
 use App\Http\Controllers\Admin\AgentController as AdminAgentController;
 use App\Http\Controllers\Admin\ManagerController as AdminManagerController;
+use App\Http\Controllers\Admin\VistorsController as AdminVistorsController;
+use App\Http\Controllers\Agent\AgentSetController;
 use App\Http\Controllers\Agent\VistorsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Manager\AgentController;
+use App\Http\Controllers\Manager\ManagerSetController;
+use App\Http\Controllers\Manager\VistorsController as ManagerVistorsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +40,10 @@ Route::get('/', function () {
     return view('auth.login');
 })->middleware('guest');
 
+Route::get('/login', function () {
+    return view('auth.login');
+})->middleware('guest');
+
 
 Auth::routes();
 
@@ -56,6 +65,14 @@ Route::middleware(['auth' , 'user-role:admin'])->group(function(){
         Route::get('agent/index', [AdminAgentController::class, 'index'])->name('admin.agent.index');
         Route::get('agent/add', [AdminAgentController::class, 'create'])->name('admin.agent.create');
         Route::post('agent/store', [AdminAgentController::class, 'store'])->name('admin.agent.store');
+
+        /* vistiros */
+        Route::get('visitors', [AdminVistorsController::class, 'index'])->name('admin.vistor.index');
+
+        /* setting control */
+        Route::get('setting/profile', [AdminSetController::class, 'profile'])->name('admin.profile.index');
+        Route::post('setting/profile/update', [AdminSetController::class, 'profileupdate'])->name('admin.profile.update');
+
     });
 });
 
@@ -70,6 +87,9 @@ Route::middleware(['auth:agent' , 'user-role:agent'])->group(function(){
     Route::get('visitors', [VistorsController::class, 'index'])->name('vistor.index');
     Route::get('visitors/create', [VistorsController::class, 'create'])->name('vistor.create');
     Route::post('visitors/store', [VistorsController::class, 'store'])->name('vistor.store');
+    /* setting control */
+    Route::get('setting/profile', [AgentSetController::class, 'profile'])->name('profile.index');
+    Route::post('setting/profile/update', [AgentSetController::class, 'profileupdate'])->name('profile.update');
 });
 
 /*------------------------------------------
@@ -85,5 +105,12 @@ Route::middleware(['auth:manager' , 'user-role:manager'])->group(function(){
         Route::get('agent/index', [AgentController::class, 'index'])->name('manager.agent.index');
         Route::get('agent/add', [AgentController::class, 'create'])->name('manager.agent.create');
         Route::post('agent/store', [AgentController::class, 'store'])->name('manager.agent.store');
+
+        /* vistiros */
+        Route::get('visitors', [ManagerVistorsController::class, 'index'])->name('manager.vistor.index');
+
+        /* setting control */
+        Route::get('setting/profile', [ManagerSetController::class, 'profile'])->name('manager.profile.index');
+        Route::post('setting/profile/update', [ManagerSetController::class, 'profileupdate'])->name('manager.profile.update');
     });
 });

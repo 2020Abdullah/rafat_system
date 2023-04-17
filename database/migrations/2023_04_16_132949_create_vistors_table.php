@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('vistor_balance');
             $table->string('vistor_count_slides');
             $table->string('vistor_count_activity');
-            $table->float('lat');
-            $table->float('long');
-            $table->text('notes');
+            $table->decimal('lat', 10, 8);
+            $table->decimal('long', 10, 8);
+            $table->text('notes')->nullable();
             $table->foreignId('Agent_id')->constrained('agents')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('manager_id')->constrained('managers')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();

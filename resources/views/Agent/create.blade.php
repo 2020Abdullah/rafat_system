@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="bmd-layout-container bmd-drawer-f-l avam-container animated bmd-drawer-in">
-    @include('admin.layout.navbar')
-    @include('admin.layout.sidebar')
+    @include('Agent.layout.navbar')
+    @include('Agent.layout.sidebar')
     <main class="bmd-layout-content">
         <div class="container-fluid">
             <div class="row  m-1 pb-4 mb-3 ">
@@ -20,8 +20,8 @@
                             </div>
                             <div class="col-lg-4">
                                 <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item "><a href="#"><i class="fas fa-home"></i></a></li>
-                                    <li class="breadcrumb-item active">إضافة مشرف</li>
+                                    <li class="breadcrumb-item "><a href="{{ route('Agent.dashboard') }}"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item active">إضافة تقرير</li>
                                 </ol>
                             </div>
                         </div>
@@ -60,14 +60,13 @@
                                 <textarea name="notes" class="form-control" id="notes" cols="20" rows="10" placeholder="ملاحظات"></textarea>
                             </div>
 
-                            <button type="button" class="btn outlined c-third o-third fnt-xxs" id="location">
-                                 تسجيل موقعك
-                            </button>
-
                             <div class="mb-3">
-                                <div class="output" style="width: 100%">
-                                </div>
+                                <button type="button" class="btn outlined c-third o-third fnt-xxs" id="location">
+                                    تسجيل موقعك
+                               </button>              
                             </div>
+
+
 
                             <div class="mb-3">
                                 <input type="submit" class="btn flat f-second btn-block fnt-xxs" value="حفظ">
@@ -89,7 +88,6 @@
                 function(position) {
                     $('#latitude').val(`${position.coords.latitude}`);
                     $('#longitude').val(`${position.coords.longitude}`);
-                    $(".output").html(`<iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=${position.coords.latitude}, ${position.coords.longitude}+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe>`);
                     if($('#latitude').val().length > 0 || $('#longitude').val().length > 0){
                         $("#location").html('<i class="fa fa-check"></i>')
                     }

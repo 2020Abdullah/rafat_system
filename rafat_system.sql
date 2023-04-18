@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 17, 2023 at 01:02 AM
+-- Generation Time: Apr 18, 2023 at 12:16 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.0
 
@@ -33,6 +33,7 @@ CREATE TABLE `agents` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profile_img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `manager_id` bigint UNSIGNED NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -43,9 +44,9 @@ CREATE TABLE `agents` (
 -- Dumping data for table `agents`
 --
 
-INSERT INTO `agents` (`id`, `name`, `email`, `email_verified_at`, `password`, `manager_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Ali', 'Agent@example.com', NULL, '$2y$10$VqFDioekszys0MUtaqqO4OISoYyQ5132dz5a2ZLhCht4sg2lQeabm', 1, NULL, '2023-04-15 23:14:33', '2023-04-15 23:14:33'),
-(2, 'Shawqi', 'Agent2@example.com', NULL, '$2y$10$Ohl6rf4GDqBO8rOcz6O3ou48RZS2pJozG3S6P1GdK997oOCJjfFWC', 1, NULL, '2023-04-16 11:20:09', '2023-04-16 11:20:09');
+INSERT INTO `agents` (`id`, `name`, `email`, `email_verified_at`, `password`, `profile_img`, `manager_id`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Ali Naser', 'Agent@example.com', NULL, '$2y$10$vdtxmg0KgRlFB4iVpNRFZurd9I7A9sQa2/jEyZvS3A2jFiPrMxGWC', '1681765873face4.jpg', 1, NULL, '2023-04-15 23:14:33', '2023-04-17 19:11:13'),
+(2, 'Shawqi', 'Agent2@example.com', NULL, '$2y$10$Ohl6rf4GDqBO8rOcz6O3ou48RZS2pJozG3S6P1GdK997oOCJjfFWC', NULL, 1, NULL, '2023-04-16 11:20:09', '2023-04-16 11:20:09');
 
 -- --------------------------------------------------------
 
@@ -76,6 +77,7 @@ CREATE TABLE `managers` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Added_by` int NOT NULL DEFAULT '0',
+  `profile_img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -85,8 +87,8 @@ CREATE TABLE `managers` (
 -- Dumping data for table `managers`
 --
 
-INSERT INTO `managers` (`id`, `name`, `email`, `email_verified_at`, `password`, `Added_by`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'manager Abdallah', 'manager@example.com', NULL, '$2y$10$p02ESdslIhsDpbn2yT9Ms.HVCqgIuF1BIxtQR6VV667Jy2NX14Z42', 1, NULL, '2023-04-15 23:14:03', '2023-04-15 23:14:03');
+INSERT INTO `managers` (`id`, `name`, `email`, `email_verified_at`, `password`, `Added_by`, `profile_img`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'abdallah', 'manager@example.com', NULL, '$2y$10$hgUSZRZAxIJ556033srkY.wWalzQy6NgI5nn8.NdvstJ.46eI.Oye', 1, '1681765640face3.jpg', NULL, '2023-04-15 23:14:03', '2023-04-17 19:07:20');
 
 -- --------------------------------------------------------
 
@@ -112,7 +114,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2019_12_14_000001_create_personal_access_tokens_table', 2),
 (10, '2023_04_16_003359_create_managers_table', 2),
 (11, '2023_04_17_231041_create_agents_table', 3),
-(13, '2023_04_16_132949_create_vistors_table', 4);
+(15, '2023_04_16_132949_create_vistors_table', 4);
 
 -- --------------------------------------------------------
 
@@ -170,6 +172,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` int NOT NULL DEFAULT '1',
+  `profile_img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Added_by` int DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -180,8 +183,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `Added_by`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin@gmail.com', 'admin@gmail.com', NULL, '$2y$10$RxXifa/8va77TzGPVpOyNuyjHIKgwlVGmPBMrWf2umTk7SJHolUd.', 1, NULL, NULL, '2023-04-12 21:14:37', '2023-04-12 21:14:37');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `profile_img`, `Added_by`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$H/ffd1uG2UkDxbt9W9AtUeCIvbLMgYwfQ8nJbw8P1Gu2PQjGNlYHu', 1, '1681747483face4.jpg', NULL, NULL, '2023-04-12 21:14:37', '2023-04-17 14:04:43');
 
 -- --------------------------------------------------------
 
@@ -196,8 +199,8 @@ CREATE TABLE `vistors` (
   `vistor_balance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `vistor_count_slides` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `vistor_count_activity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `long` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lat` decimal(10,8) NOT NULL,
+  `long` decimal(10,8) NOT NULL,
   `notes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `Agent_id` bigint UNSIGNED NOT NULL,
   `manager_id` bigint UNSIGNED NOT NULL,
@@ -210,8 +213,7 @@ CREATE TABLE `vistors` (
 --
 
 INSERT INTO `vistors` (`id`, `vistor_code`, `vistor_phone`, `vistor_balance`, `vistor_count_slides`, `vistor_count_activity`, `lat`, `long`, `notes`, `Agent_id`, `manager_id`, `created_at`, `updated_at`) VALUES
-(1, '2001', '01093252132123', '1000', '10', '5', '30', '31', 'تمت عملية البيع بنجاح', 1, 1, '2023-04-16 21:43:24', '2023-04-16 21:43:24'),
-(2, '2002', '0184124512321', '2000', '20', '10', '30.1473321', '31.3484014', 'تمت عملية البيع بنجاح', 1, 1, '2023-04-16 22:04:54', '2023-04-16 22:04:54');
+(1, '2001', '010932521322', '1000', '10', '5', '30.14732740', '31.34840430', 'تم البيع', 1, 1, '2023-04-17 10:52:02', '2023-04-17 10:52:02');
 
 --
 -- Indexes for dumped tables
@@ -306,7 +308,7 @@ ALTER TABLE `managers`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -324,7 +326,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vistors`
 --
 ALTER TABLE `vistors`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

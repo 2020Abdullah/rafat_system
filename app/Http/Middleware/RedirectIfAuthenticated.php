@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     {
         // $guards = empty($guards) ? [null] : $guards;
 
-        if ($guard == 'web' && auth('web')->check()) {
+        if ($guard == 'web' || auth('web')->check()) {
              redirect('admin/dashboard');
         }
         if ($guard == 'manager' && auth('manager')->check()) {

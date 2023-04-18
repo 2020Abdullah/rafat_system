@@ -31,14 +31,9 @@ All Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::get('/vistors', function(){
-    return view('form');
-});
-
-
 Route::get('/', function () {
     return view('auth.login');
-})->middleware('guest');
+});
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -68,6 +63,7 @@ Route::middleware(['auth' , 'user-role:admin'])->group(function(){
 
         /* vistiros */
         Route::get('visitors', [AdminVistorsController::class, 'index'])->name('admin.vistor.index');
+        Route::get('visitors/export', [AdminVistorsController::class, 'exportExcel'])->name('admin.vistor.export');
 
         /* setting control */
         Route::get('setting/profile', [AdminSetController::class, 'profile'])->name('admin.profile.index');
@@ -108,6 +104,7 @@ Route::middleware(['auth:manager' , 'user-role:manager'])->group(function(){
 
         /* vistiros */
         Route::get('visitors', [ManagerVistorsController::class, 'index'])->name('manager.vistor.index');
+        Route::get('visitors/export', [ManagerVistorsController::class, 'exportExcel'])->name('manager.vistor.export');
 
         /* setting control */
         Route::get('setting/profile', [ManagerSetController::class, 'profile'])->name('manager.profile.index');

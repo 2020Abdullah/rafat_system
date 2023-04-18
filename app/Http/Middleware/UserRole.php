@@ -17,7 +17,7 @@ class UserRole
      */
     public function handle(Request $request, Closure $next, $userType): Response
     {
-        if($userType == 'admin'){
+        if($userType == 'admin' || auth('web')->check()){
              redirect(RouteServiceProvider::ADMIN);
         }
         else if ($userType == 'agent'){

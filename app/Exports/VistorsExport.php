@@ -17,11 +17,11 @@ class VistorsExport implements FromCollection, WithHeadings, WithEvents
 
     public function collection()
     {
-        return Vistor::select(["vistor_code", "vistor_phone", "vistor_balance", "vistor_count_slides", "vistor_count_activity", "notes"])->get();
+        return Vistor::select(["vistor_code", "vistor_phone", "vistor_balance", "vistor_count_slides", "vistor_count_activity", "notes", "lat", "long"])->get();
     }
     public function headings(): array
     {
-        return ["رقم التقرير", "رقم اليوزر", "رصيد اليوزر", "عدد الشرائح", "عدد التفعيلات", "ملاحظات"];
+        return ["رقم التقرير", "رقم اليوزر", "رصيد اليوزر", "عدد الشرائح", "عدد التفعيلات", "ملاحظات", "خطوط الطول", "خطوط العرض"];
     }
     public function registerEvents(): array
     {

@@ -8,7 +8,7 @@
         </header>
         <p class="side-comment">أساسي</p>
         <li class="side a-collapse short ">
-            <a href="{{ route('manager.dashboard') }}" class="side-item selected"><i class="fas fa-language  mr-1"></i>الرئيسية</a>
+            <a href="{{ route('manager.dashboard') }}" class="side-item selected"><i class="fas fa-home  mr-1"></i>الرئيسية</a>
         </li>
         <ul class="side a-collapse short">
             <a class="ul-text"><i class="fas fa-tachometer-alt mr-1"></i> الفريق

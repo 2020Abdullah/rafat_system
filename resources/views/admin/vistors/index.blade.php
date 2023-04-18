@@ -30,9 +30,11 @@
                 </div>
             </div>
             <div class="jumbotron shade pt-5">
-                <div class="action">
-                    <a href="{{ route('admin.vistor.export') }}" class="btn btn-main f-forth fnt-xxs">تصدير كملف اكسل</a>
-                </div>
+                @if ($Allreports->count())
+                    <div class="action">
+                        <a href="{{ route('admin.vistor.export') }}" class="btn btn-main f-forth fnt-xxs">تصدير كملف اكسل</a>
+                    </div>
+                @endif
                 <div class="table-title-action">
                     <h3 class="display-4">كل تقارير الزيارات</h3>
                 </div>

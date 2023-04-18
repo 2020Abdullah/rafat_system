@@ -59,6 +59,9 @@
                                 <td>
                                     <button  type="button" id="location" class="btn main f-second fnt-xxs" data-bs-toggle="modal" data-bs-target="#location{{ $reports->Agent_id }}">عرض</button>
                                 </td>
+                                <td>
+
+                                </td>
                             </tr>
                             <!-- Modal location -->
                             <div class="modal fade" id="location{{ $reports->Agent_id }}" data-bs-keyboard="true" tabindex="-1" aria-hidden="true">

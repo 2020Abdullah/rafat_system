@@ -40,12 +40,22 @@
                             <td>رقم المشرف</td>
                             <td>اسم المشرف</td>
                             <td>بريد المشرف</td>
+                            <td>الحالة</td>
+                            <td>اتخاذ إجراء</td>
                         </tr>
                         @forelse ($managers as $manager)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $manager->name }}</td>
                                 <td>{{ $manager->email }}</td>
+                                <td>{{ $manager->status == 1 ? 'مفعل' : 'معطل' }}</td>
+                                <td>
+                                    @if ($manager->status == 1)
+                                        <a class="btn flat f-danger fnt-xxs" href="{{ route('admin.manager.delete', $manager->id) }}">تعطيل</a>
+                                    @else
+                                        <a class="btn flat f-second fnt-xxs" href="{{ route('admin.manager.active', $manager->id) }}">تفعيل</a>
+                                    @endif
+                                </td>
                             </tr>
                         @empty
                             <tr>

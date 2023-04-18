@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class AgentController extends Controller
 {
     public function index(){
-        $Agents = Agent::with('manager')->get();
+        $Agents = Agent::where('manager_id', auth('manager')->user()->id)->with('manager')->get();
         return view('manager.agent.index', compact('Agents'));
     }
 

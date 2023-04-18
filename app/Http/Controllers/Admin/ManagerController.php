@@ -32,4 +32,16 @@ class ManagerController extends Controller
 
         return redirect()->route('admin.manager.index')->with('success', 'تم إضافة المشرف بنجاح');
     }
+    public function stopManager($id){
+        Manager::where('id', $id)->update([
+            'status' => 0
+        ]);
+        return redirect()->route('admin.manager.index')->with('success', 'تم تعطيل حساب المشرف');
+    }
+    public function activeManager($id){
+        Manager::where('id', $id)->update([
+            'status' => 1
+        ]);
+        return redirect()->route('admin.manager.index')->with('success', 'تم تفعيل الحساب بنجاح');
+    }
 }

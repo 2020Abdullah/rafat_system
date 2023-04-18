@@ -42,6 +42,8 @@
                             <td>بريد المطور</td>
                             <td>اسم المطور</td>
                             <td>اسم المشرف</td>
+                            <td>الحالة</td>
+                            <td>اتخاذ إجراء</td>
                         </tr>
                         @forelse ($Agents as $Agent)
                             <tr>
@@ -49,6 +51,14 @@
                                 <td>{{ $Agent->email }}</td>
                                 <td>{{ $Agent->name }}</td>
                                 <td>{{ $Agent->manager->name }}</td>
+                                <td>{{ $Agent->status == 1 ? 'مفعل' : 'معطل' }}</td>
+                                <td>
+                                    @if ($Agent->status == 1)
+                                        <a class="btn flat f-danger fnt-xxs" href="{{ route('admin.agent.delete', $Agent->id) }}">تعطيل</a>
+                                    @else
+                                        <a class="btn flat f-second fnt-xxs" href="{{ route('admin.agent.active', $Agent->id) }}">تفعيل</a>
+                                    @endif
+                                </td>
                             </tr>
                         @empty
                             <tr>

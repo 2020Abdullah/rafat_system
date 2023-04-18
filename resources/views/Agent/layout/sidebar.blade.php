@@ -9,6 +9,10 @@
         <p class="side-comment">أساسي</p>
 
         <li class="side a-collapse short ">
+            <a href="{{ route('Agent.dashboard') }}" class="side-item selected"><i class="fas fa-home  mr-1"></i>الرئيسية</a>
+        </li>
+
+        <li class="side a-collapse short ">
             <a href="{{route('vistor.index')}}" class="side-item "><i class="fas fa-fan fa-spin mr-1"></i>صفحة الزيارات</a>
         </li>
 

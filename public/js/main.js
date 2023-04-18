@@ -21,10 +21,18 @@ $(document).ready(function () {
       $("div.side-item-container", this).toggleClass("hide animated");
     }
   });
+
 $('.navbar-toggler').on('click', function(){
   $('.bmd-layout-container').toggleClass('bmd-drawer-in')
   $('.bmd-layout-drawer').toggleClass('show')
 })
+
+if($(window).width() < 992){
+  $('.bmd-layout-container').removeClass('bmd-drawer-in')
+}
+else {
+  $('.bmd-layout-container').addClass('bmd-drawer-in')
+}
 
 });
 

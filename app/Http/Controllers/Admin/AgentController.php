@@ -35,4 +35,16 @@ class AgentController extends Controller
 
         return redirect()->route('admin.agent.index')->with('success', 'تم إضافة مطور مبيعات بنجاح');
     }
+    public function stopAgent($id){
+        Agent::where('id', $id)->update([
+            'status' => 0
+        ]);
+        return redirect()->route('admin.agent.index')->with('success', 'تم تعطيل حساب المطور');
+    }
+    public function activeAgent($id){
+        Agent::where('id', $id)->update([
+            'status' => 1
+        ]);
+        return redirect()->route('admin.agent.index')->with('success', 'تم تفعيل الحساب بنجاح');
+    }
 }

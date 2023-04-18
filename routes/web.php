@@ -49,17 +49,22 @@ All admin Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::middleware(['auth' , 'user-role:admin'])->group(function(){
+Route::middleware(['auth'])->group(function(){
     Route::group(['prefix' => 'admin'] , function(){
         Route::get('dashboard', [HomeController::class, 'adminHome'])->name('admin.dashboard');
-        /* admin control moduls*/
+        /* manager control moduls*/
         Route::get('Manager/index', [AdminManagerController::class, 'index'])->name('admin.manager.index');
         Route::get('Manager/add', [AdminManagerController::class, 'create'])->name('admin.manager.create');
         Route::post('Manager/store', [AdminManagerController::class, 'store'])->name('admin.manager.store');
+        Route::get('Manager/{id}/stop', [AdminManagerController::class, 'stopManager'])->name('admin.manager.delete');
+        Route::get('Manager/{id}/active', [AdminManagerController::class, 'activeManager'])->name('admin.manager.active');
+
         /* agent control moduls*/
         Route::get('agent/index', [AdminAgentController::class, 'index'])->name('admin.agent.index');
         Route::get('agent/add', [AdminAgentController::class, 'create'])->name('admin.agent.create');
         Route::post('agent/store', [AdminAgentController::class, 'store'])->name('admin.agent.store');
+        Route::get('agent/{id}/stop', [AdminAgentController::class, 'stopAgent'])->name('admin.agent.delete');
+        Route::get('agent/{id}/active', [AdminAgentController::class, 'activeAgent'])->name('admin.agent.active');
 
         /* vistiros */
         Route::get('visitors', [AdminVistorsController::class, 'index'])->name('admin.vistor.index');
@@ -78,7 +83,7 @@ All Agent Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::middleware(['auth:agent' , 'user-role:agent'])->group(function(){
+Route::middleware(['auth:agent' , 'user-role'])->group(function(){
     Route::get('Agent/dashboard', [HomeController::class, 'agentHome'])->name('Agent.dashboard');
     Route::get('visitors', [VistorsController::class, 'index'])->name('vistor.index');
     Route::get('visitors/create', [VistorsController::class, 'create'])->name('vistor.create');
@@ -94,7 +99,7 @@ All manager Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::middleware(['auth:manager' , 'user-role:manager'])->group(function(){
+Route::middleware(['auth:manager' , 'user-role'])->group(function(){
     Route::group(['prefix' => 'manager'], function(){
         Route::get('dashboard', [HomeController::class, 'managerHome'])->name('manager.dashboard');
         /* agent control moduls */

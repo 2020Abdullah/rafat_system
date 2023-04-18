@@ -15,20 +15,16 @@ class UserRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $userType): Response
+    public function handle(Request $request, Closure $next): Response
     {
-        if($userType == 'admin' || auth('web')->check()){
-             redirect(RouteServiceProvider::ADMIN);
-        }
-        else if ($userType == 'agent'){
-             redirect(RouteServiceProvider::AGENT);
-        }
-        else if ($userType == 'manager'){
-             redirect(RouteServiceProvider::MANAGER);
-        }
-        else {
-             redirect()->route('login')->with('error' , 'غير مسموح لك بالدخول إلي هذه الصفحة .');
-        }
-        return $next($request);
+          if(auth('manager')->check() && auth('manager')->user()->status == 0){
+               Auth::logout();
+               return redirect()->back()->with('info', 'تم تعطيل حسابك برجاء التواصل مع الدعم');
+          }
+          if(auth('agent')->check() && auth('agent')->user()->status == 0){
+               Auth::logout();
+               return redirect()->back()->with('info', 'تم تعطيل حسابك برجاء التواصل مع الدعم');
+          }
+          return $next($request);
     }
 }

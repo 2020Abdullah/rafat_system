@@ -46,6 +46,9 @@ profile setting
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
 }
+.login-btn {
+    margin-top: 1rem;
+}
 
 .action {
     display: flex;

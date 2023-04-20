@@ -17,4 +17,8 @@ class VistorsController extends Controller
     public function exportExcel(){
         return Excel::download(new VistorsExport, 'Vistors.xlsx');
     }
+    public function destory($id){
+        Vistor::where('id', $id)->delete();
+        return back()->with('success', 'تم حذف التقرير بنجاح');
+    }
 }

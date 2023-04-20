@@ -50,6 +50,7 @@
                             <td>مطور المبيعات</td>
                             <td>ملاحظات</td>
                             <td>الموقع</td>
+                            <td>اتخاذ إجراء</td>
                         </tr>
                         @foreach ($Allreports as $reports)
                             <input type="hidden" id="latitude" value="{{$reports->lat}}">
@@ -64,6 +65,9 @@
                                 <td>{{ $reports->notes }}</td>
                                 <td>
                                     <button  type="button" id="location" class="btn main f-second fnt-xxs" data-bs-toggle="modal" data-bs-target="#location{{ $reports->Agent_id }}">عرض</button>
+                                </td>
+                                <td>
+                                    <a class="btn main f-danger fnt-xxs" href="{{ route('manager.vistor.destory', $reports->id) }}">حذف</a>
                                 </td>
                             </tr>
                             <!-- Modal location -->

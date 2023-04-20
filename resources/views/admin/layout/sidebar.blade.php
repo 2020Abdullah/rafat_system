@@ -11,7 +11,7 @@
             <a href="{{ route('admin.dashboard') }}" class="side-item selected"><i class="fas fa-home  mr-1"></i>الرئيسية</a>
         </li>
         <ul class="side a-collapse short">
-            <a class="ul-text"><i class="fas fa-tachometer-alt mr-1"></i> الفريق
+            <a class="ul-text"><i class="fas fa-users mr-1"></i> الفريق
                 <!-- <span class="badge badge-info">4</span> -->
                 <i class="fas fa-chevron-down arrow"></i></a>
             <div class="side-item-container ">

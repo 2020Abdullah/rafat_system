@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 18, 2023 at 08:13 PM
+-- Generation Time: Apr 26, 2023 at 09:45 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.0
 
@@ -48,7 +48,10 @@ CREATE TABLE `agents` (
 INSERT INTO `agents` (`id`, `name`, `email`, `email_verified_at`, `password`, `profile_img`, `manager_id`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Ali Naser', 'Agent@example.com', NULL, '$2y$10$vdtxmg0KgRlFB4iVpNRFZurd9I7A9sQa2/jEyZvS3A2jFiPrMxGWC', '1681765873face4.jpg', 1, 1, NULL, '2023-04-15 23:14:33', '2023-04-17 19:11:13'),
 (2, 'Shawqi', 'Agent2@example.com', NULL, '$2y$10$Ohl6rf4GDqBO8rOcz6O3ou48RZS2pJozG3S6P1GdK997oOCJjfFWC', NULL, 1, 1, NULL, '2023-04-16 11:20:09', '2023-04-16 11:20:09'),
-(3, 'radwan', 'radwan@example.com', NULL, '$2y$10$lZzyBiQX3m1s4OzFM9wz0eXnCqkYETqk2EB88n42zvFzXsiW0VeWm', NULL, 1, 1, NULL, '2023-04-18 11:29:23', '2023-04-18 15:12:05');
+(3, 'عبدالرحمن', 'abdo@gmail.com', NULL, '$2y$10$I4c1oM0iANQ7mB0vki6N5.yu6SmL/Wp/O87fl/Cs.ukiTHKw/Z/he', NULL, 3, 1, NULL, '2023-04-18 09:04:58', '2023-04-18 09:04:58'),
+(4, 'سمير', 'samer@gmail.com', NULL, '$2y$10$5P5gzJOuRncjyQocFUX2COPFVt2gfEHeHcFGmEZoDpJTV7xzRIjlu', NULL, 2, 1, NULL, '2023-04-18 09:06:00', '2023-04-18 09:06:00'),
+(5, 'ربيع', 'anas1@gmail.com', NULL, '$2y$10$h/BLCy9cBMyne/P6vb/7Ie2yxZKQvS1doLcs174SvinTkuJSdURdW', NULL, 3, 1, NULL, '2023-04-18 14:00:24', '2023-04-18 14:00:24'),
+(6, 'ali', 'ali@gmail.com', NULL, '$2y$10$q/aHsB6S7m6LH25Lv7Kf9enUTF6RsSV1rQNwRHwSBeD.iP6nb/lLq', NULL, 4, 1, NULL, '2023-04-18 14:15:26', '2023-04-18 14:15:26');
 
 -- --------------------------------------------------------
 
@@ -91,8 +94,10 @@ CREATE TABLE `managers` (
 --
 
 INSERT INTO `managers` (`id`, `name`, `email`, `email_verified_at`, `password`, `Added_by`, `profile_img`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'abdallah', 'manager@example.com', NULL, '$2y$10$hgUSZRZAxIJ556033srkY.wWalzQy6NgI5nn8.NdvstJ.46eI.Oye', 1, '1681765640face3.jpg', 0, NULL, '2023-04-15 23:14:03', '2023-04-18 14:59:29'),
-(2, 'Anas Manager', 'Anas@example.com', NULL, '$2y$10$tnrKuHYYSHdBOFQUBpAqLO6Yy032J4S9yiJ2i.BWQUnJreHAC9/am', 1, '1681824745face8.jpg', 1, NULL, '2023-04-18 11:30:14', '2023-04-18 15:17:56');
+(1, 'abdallah', 'manager@example.com', NULL, '$2y$10$hgUSZRZAxIJ556033srkY.wWalzQy6NgI5nn8.NdvstJ.46eI.Oye', 1, '1681765640face3.jpg', 1, NULL, '2023-04-15 23:14:03', '2023-04-17 19:07:20'),
+(2, 'انس', 'anas@gmail.com', NULL, '$2y$10$polSRH3ySaoxO8d2O6q5Yuyu58vJbkYPO1fc/CTrF6tTQoPkkIuN2', 1, '1681794705IMG_20230417_210838.jpg', 1, NULL, '2023-04-18 09:02:41', '2023-04-18 09:11:45'),
+(3, 'بدر', 'badr@gmail.com', NULL, '$2y$10$pymhqcvM6YJOG02N/P7g3O1R0LbtF/mchDJEl6zFSf49DjiQcVy5K', 1, NULL, 1, NULL, '2023-04-18 09:03:46', '2023-04-18 09:03:46'),
+(4, 'Ahmed', 'ahmed@gmail.com', NULL, '$2y$10$bLqutVdVI9k5lwSZpYJS2OF0ZdH3gAKtxoIet.43aBNBb/mc21NR2', 1, NULL, 1, NULL, '2023-04-18 14:14:04', '2023-04-18 14:14:04');
 
 -- --------------------------------------------------------
 
@@ -175,7 +180,7 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` int NOT NULL DEFAULT '1',
+  `role` int NOT NULL DEFAULT '1',
   `profile_img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Added_by` int DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -187,8 +192,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `status`, `profile_img`, `Added_by`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$H/ffd1uG2UkDxbt9W9AtUeCIvbLMgYwfQ8nJbw8P1Gu2PQjGNlYHu', 1, '1681747483face4.jpg', NULL, NULL, '2023-04-12 21:14:37', '2023-04-17 14:04:43');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `profile_img`, `Added_by`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Rafat Badr', 'rafat@gmail.com', NULL, '$2y$10$BoDftzAFbz2kTG76MjQqAOBS725a.zfcqbHQNUz2AeUhls1RvkJh.', 1, '1682169371mySalamLogo-min (1).png', NULL, NULL, '2023-04-12 21:14:37', '2023-04-22 17:16:12');
 
 -- --------------------------------------------------------
 
@@ -205,7 +210,7 @@ CREATE TABLE `vistors` (
   `vistor_count_activity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lat` decimal(10,8) NOT NULL,
   `long` decimal(10,8) NOT NULL,
-  `notes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `notes` text COLLATE utf8mb4_unicode_ci,
   `Agent_id` bigint UNSIGNED NOT NULL,
   `manager_id` bigint UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -217,7 +222,11 @@ CREATE TABLE `vistors` (
 --
 
 INSERT INTO `vistors` (`id`, `vistor_code`, `vistor_phone`, `vistor_balance`, `vistor_count_slides`, `vistor_count_activity`, `lat`, `long`, `notes`, `Agent_id`, `manager_id`, `created_at`, `updated_at`) VALUES
-(1, '2001', '010932521322', '1000', '10', '5', '30.14732740', '31.34840430', 'تم البيع', 1, 1, '2023-04-17 10:52:02', '2023-04-17 10:52:02');
+(1, '2001', '010932521322', '1000', '10', '5', '30.14732740', '31.34840430', 'تم البيع', 1, 1, '2023-04-17 10:52:02', '2023-04-17 10:52:02'),
+(2, '204', '34444344', '9876', '3', '1', '31.03201340', '30.46234820', 'test', 2, 1, '2023-04-18 08:53:43', '2023-04-18 08:53:43'),
+(3, '1234', '0134678854', '7000', '4', '3', '31.03184020', '30.46229000', 'عم رافت صح الصح', 4, 2, '2023-04-18 09:19:44', '2023-04-18 09:19:44'),
+(4, '2010', '0987654321', '4', '6', '7', '31.03134180', '30.46210110', 'test', 5, 3, '2023-04-18 14:04:45', '2023-04-18 14:04:45'),
+(5, '55', '٠١٠٩٨٢٤٥٩١٨', '333', '4333', '555', '30.26700945', '31.49199324', 'Tast', 4, 2, '2023-04-22 18:08:31', '2023-04-22 18:08:31');
 
 --
 -- Indexes for dumped tables
@@ -294,7 +303,7 @@ ALTER TABLE `vistors`
 -- AUTO_INCREMENT for table `agents`
 --
 ALTER TABLE `agents`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -306,7 +315,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `managers`
 --
 ALTER TABLE `managers`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -330,7 +339,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vistors`
 --
 ALTER TABLE `vistors`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

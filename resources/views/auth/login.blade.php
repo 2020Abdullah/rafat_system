@@ -23,7 +23,7 @@
                                placeholder="ادخل كلمة المرور">
                        </div>
 
-                       <button type="submit" class="btn shade f-primary btn-block">تسجيل الدخول</button>
+                       <button type="submit" class="login-btn btn shade f-primary btn-block">تسجيل الدخول</button>
                    </form>
                </div>
            </div>

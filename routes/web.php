@@ -52,6 +52,7 @@ All admin Users Routes List
 Route::middleware(['auth'])->group(function(){
     Route::group(['prefix' => 'admin'] , function(){
         Route::get('dashboard', [HomeController::class, 'adminHome'])->name('admin.dashboard');
+
         /* manager control moduls*/
         Route::get('Manager/index', [AdminManagerController::class, 'index'])->name('admin.manager.index');
         Route::get('Manager/add', [AdminManagerController::class, 'create'])->name('admin.manager.create');
@@ -68,6 +69,7 @@ Route::middleware(['auth'])->group(function(){
 
         /* vistiros */
         Route::get('visitors', [AdminVistorsController::class, 'index'])->name('admin.vistor.index');
+        Route::get('visitors/destory/{id}', [AdminVistorsController::class, 'destory'])->name('admin.vistor.destory');
         Route::get('visitors/export', [AdminVistorsController::class, 'exportExcel'])->name('admin.vistor.export');
 
         /* setting control */
@@ -110,6 +112,7 @@ Route::middleware(['auth:manager' , 'user-role'])->group(function(){
         /* vistiros */
         Route::get('visitors', [ManagerVistorsController::class, 'index'])->name('manager.vistor.index');
         Route::get('visitors/export', [ManagerVistorsController::class, 'exportExcel'])->name('manager.vistor.export');
+        Route::get('visitors/destory/{id}', [ManagerVistorsController::class, 'destory'])->name('manager.vistor.destory');
 
         /* setting control */
         Route::get('setting/profile', [ManagerSetController::class, 'profile'])->name('manager.profile.index');

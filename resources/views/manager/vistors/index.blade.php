@@ -50,6 +50,7 @@
                             <td>مطور المبيعات</td>
                             <td>ملاحظات</td>
                             <td>الموقع</td>
+                            <td>اتخاذ إجراء</td>
                         </tr>
                         @foreach ($Allreports as $reports)
                             <input type="hidden" id="latitude" value="{{$reports->lat}}">
@@ -63,24 +64,27 @@
                                 <td>{{ $reports->agent->name }}</td>
                                 <td>{{ $reports->notes }}</td>
                                 <td>
-                                    <button  type="button" id="location" class="btn main f-second fnt-xxs" data-bs-toggle="modal" data-bs-target="#location{{ $reports->Agent_id }}">عرض</button>
+                                    <button  type="button" class="btn main f-second fnt-xxs showloc" data-lat="{{ $reports->lat }}" data-long="{{$reports->long }}">عرض</button>
+                                </td>
+                                <td>
+                                    <a class="btn main f-danger fnt-xxs" href="{{ route('manager.vistor.destory', $reports->id) }}">حذف</a>
                                 </td>
                             </tr>
-                            <!-- Modal location -->
-                            <div class="modal fade" id="location{{ $reports->Agent_id }}" data-bs-keyboard="true" tabindex="-1" aria-hidden="true">
-                                <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">موقع اليوزر</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="googleMap"></div>
-                                    </div>
+                            @endforeach
+                        <!-- Modal location -->
+                        <div class="modal fade" id="locationModel" data-bs-keyboard="true" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">موقع اليوزر</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
+                                <div class="modal-body">
+                                    <div class="googleMap"></div>
                                 </div>
                             </div>
-                        @endforeach
+                            </div>
+                        </div>
                     </table>
                 </div>
             </div>
@@ -91,15 +95,13 @@
 
 @section('js')
 <script>
-    $(function(){
-        $('#location').on('click', function(){
-            navigator.geolocation.getCurrentPosition(
-                function(position) {
-                    $('#latitude').val(`${position.coords.latitude}`);
-                    $('#longitude').val(`${position.coords.longitude}`);
-                    $(".googleMap").html(`<iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=${position.coords.latitude}, ${position.coords.longitude}+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe>`);
-                },
-            )
+     $(function(){
+        $('.showloc').on('click', function(e){
+            e.preventDefault();
+            let lat = $(this).attr('data-lat');
+            let long = $(this).attr('data-long');
+            $('.googleMap').html(`<iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=${lat}, ${long}+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe>`);
+            $('#locationModel').modal('toggle')
         })
     })
 </script>

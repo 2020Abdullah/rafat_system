@@ -19,17 +19,16 @@ class RedirectIfAuthenticated
     {
         // $guards = empty($guards) ? [null] : $guards;
 
-        if ($guard == 'web' || auth('web')->check()) {
-             redirect('admin/dashboard');
-        }
-        if ($guard == 'manager' && auth('manager')->check()) {
-             redirect('manager/dashboard');
-        }
-        if ($guard == 'agent' && auth('agent')->check()) {
-             redirect('Agent/dashboard');
-        }
-        else {
-             redirect('login');
+        if(auth('web')->check() || auth('manager')->check() || auth('agent')->check()){
+             if ($guard == 'web' || auth('web')->check()) {
+                  return redirect('admin/dashboard');
+             }
+             if ($guard == 'manager' || auth('manager')->check()) {
+                  return redirect('manager/dashboard');
+             }
+             if ($guard == 'agent' || auth('agent')->check()) {
+                  return redirect('Agent/dashboard');
+             }
         }
         return $next($request);
     }

@@ -12,7 +12,7 @@ class Vistor extends Model
     public $guarded = [];
 
     public function manager(){
-        return $this->belongsTo(Manager::class , 'manager_id');
+        return $this->belongsTo(Manager::class , 'manager_id')->withDefault();
     }
     public function agent(){
         return $this->belongsTo(Agent::class , 'Agent_id');

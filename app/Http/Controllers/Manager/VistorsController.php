@@ -21,4 +21,14 @@ class VistorsController extends Controller
         Vistor::where('id', $id)->delete();
         return back()->with('success', 'تم حذف التقرير بنجاح');
     }
+    public function deleteAll(Request $request){
+        $recardsIds = json_decode($request->recardsIds);
+
+        $vistors = Vistor::whereIn('id', $recardsIds);
+
+        $vistors->delete();
+
+        return back()->with('success', 'تم حذف جميع التقارير بنجاح');
+
+    }
 }

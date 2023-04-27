@@ -33,6 +33,11 @@
                 @if ($Allreports->count())
                     <div class="action">
                         <a href="{{ route('admin.vistor.export') }}" class="btn btn-main f-forth fnt-xxs">تصدير كملف اكسل</a>
+                        <form method="POST" action="{{route('admin.vistor.deleteAll')}}" style="display: inline-block">
+                            @csrf
+                            <input type="hidden" name="recardsIds" id="recardsIds" value="">
+                            <input type="submit" value="حذف الكل" class="btn shade f-danger btn-block fnt-xxs " id="deleteAll" disabled>
+                        </form>
                     </div>
                 @endif
                 <div class="table-title-action">
@@ -42,6 +47,9 @@
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tr>
+                            <td>
+                                <input type="checkbox" name="checkbox" class="Allcheckbox" value="">
+                            </td>
                             <td>كود اليوزر</td>
                             <td>رقم جوال اليوزر</td>
                             <td>رصيد اليوزر</td>
@@ -55,6 +63,9 @@
                         </tr>
                         @foreach ($Allreports as $reports)
                             <tr>
+                                <td>
+                                    <input type="checkbox" name="checkbox" class="checkbox" value="{{ $reports->id }}">
+                                </td>
                                 <td>{{ $reports->vistor_code }}</td>
                                 <td>{{ $reports->vistor_phone }}</td>
                                 <td>{{ $reports->vistor_balance }}</td>
@@ -102,6 +113,52 @@
             let long = $(this).attr('data-long');
             $('.googleMap').html(`<iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=${lat}, ${long}+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/distance-area-calculator.html">measure distance on map</a></iframe>`);
             $('#locationModel').modal('toggle')
+        })
+
+        // user select only
+
+        $(".checkbox").on('change', function(){
+            getRecoards();
+        });
+
+        // userselect All
+        $(".Allcheckbox").on('change', function(){
+
+            $('.checkbox').prop('checked', this.checked);
+
+            getRecoards();
+
+        });
+
+        function getRecoards(){
+            let recardsIds = [];
+
+            $.each($('.checkbox:checked'), function(){
+                recardsIds.push($(this).val());    
+            })
+            
+            $('#recardsIds').val(JSON.stringify(recardsIds));
+
+            if(recardsIds.length > 0){
+
+                $('#deleteAll').attr('disabled', false);
+
+            }
+            else {
+
+                $('#deleteAll').attr('disabled', true);
+            }
+        
+        }
+
+        $("form").on('submit', function(){
+            let alertMsg = confirm('هل تريد حذف هذه العناصر بالفعل ؟');
+            if(alertMsg == true){
+                return true;
+            }
+            else {
+                return false;
+            }
         })
     })
 </script>

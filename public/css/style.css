@@ -56,3 +56,10 @@ profile setting
     align-items: center;
     margin-bottom: 1.5rem;
 }
+
+.action form input[type="submit"]:disabled {
+    opacity: 0.4;
+    user-select: none;
+    cursor: not-allowed;
+    pointer-events: all;
+}

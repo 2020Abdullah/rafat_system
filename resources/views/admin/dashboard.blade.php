@@ -30,22 +30,28 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
-                        <span class="c-first">عدد المشرفين</span>
-                        <span class="h3">{{ $managerCount }}</span>
-                    </div>
+                    <a href="{{ route('admin.manager.index') }}">
+                        <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
+                            <span class="c-first">عدد المشرفين</span>
+                            <span class="h3">{{ $managerCount }}</span>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-4">
-                    <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
-                        <span class="c-first">عدد مطورين المبيعات</span>
-                        <span class="h3">{{ $agentCount }}</span>
-                    </div>
+                    <a href="{{ route('admin.agent.index') }}">
+                        <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
+                            <span class="c-first">عدد مطورين المبيعات</span>
+                            <span class="h3">{{ $agentCount }}</span>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-4">
-                    <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
-                        <span class="c-first">عدد الزيارات</span>
-                        <span class="h3">{{ $vistorCount }}</span>
-                    </div>
+                    <a href="{{ route('admin.vistor.index') }}">
+                        <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
+                            <span class="c-first">عدد الزيارات</span>
+                            <span class="h3">{{ $vistorCount }}</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

@@ -34,7 +34,8 @@
                     <div class="jumbotron glass profile">
                       <div class="card-body">
                         <div class="profile_img">
-                            <img src="{{ asset('/storage/images/'. auth('agent')->user()->profile_img) }}" alt="logo">
+                            <!-- ضع صورتك هنا-->
+                            <img src="https://picsum.photos/id/20/200/200" alt="logo">
                         </div>
                         <div class="list-group list-group-flush" role="tablist">
                             <a class="list-group-item list-group-item-action active" data-toggle="list" href="#profile" role="tab">
@@ -56,23 +57,23 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label for="">اسمك</label>
-                                            <input type="text" class="form-control" name="name" value="{{ auth('agent')->user()->name }}">
+                                            <input type="text" class="form-control" name="name" value="{{ auth('agent')->user()->name }}" readonly>
                                         </div>
                                         <div class="mb-3">
                                             <label for="">بريدك الإلكتروني</label>
-                                            <input type="text" class="form-control" name="email" value="{{ auth('agent')->user()->email }}">
+                                            <input type="text" class="form-control" name="email" value="{{ auth('agent')->user()->email }}" readonly>
                                         </div>
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <label for="">تغيير كلمة السر</label>
                                             <input type="password" class="form-control" name="password" placeholder="New Password">
-                                        </div>
-                                        <div class="mb-3">
+                                        </div> --}}
+                                        {{-- <div class="mb-3">
                                             <label for="">تغيير صورة البروفايل</label>
                                             <input type="file" class="form-control" name="image">
-                                        </div>
-                                        <div class="mb-3">
+                                        </div> --}}
+                                        {{-- <div class="mb-3">
                                             <input type="submit" value="حفظ" class="btn main f-second btn-block fnt-xxs">
-                                        </div>
+                                        </div> --}}
                                     </form>
                                 </div>
                             </div>

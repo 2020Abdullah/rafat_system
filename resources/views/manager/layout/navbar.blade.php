@@ -59,7 +59,10 @@
                     </div>
                 </div>
             </li> --}}
-            <li class="nav-item"> <img src="{{ asset('/storage/images/'. auth('manager')->user()->profile_img) }}" alt="..." class="rounded-circle screen-user-profile"></li>
+            <li class="nav-item"> 
+                <!-- ضع صورتك هنا-->
+                <img src="https://picsum.photos/id/20/20/20" alt="logo">
+            </li>
             <li class="nav-item">
                 <div class="dropdown">
                     <button class="btn  dropdown-toggle m-0" type="button" id="dropdownMenu4" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

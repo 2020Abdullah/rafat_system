@@ -71,6 +71,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('visitors', [AdminVistorsController::class, 'index'])->name('admin.vistor.index');
         Route::get('visitors/destory/{id}', [AdminVistorsController::class, 'destory'])->name('admin.vistor.destory');
         Route::get('visitors/export', [AdminVistorsController::class, 'exportExcel'])->name('admin.vistor.export');
+        Route::post('visitors/deleteAll', [AdminVistorsController::class, 'deleteAll'])->name('admin.vistor.deleteAll');
 
         /* setting control */
         Route::get('setting/profile', [AdminSetController::class, 'profile'])->name('admin.profile.index');
@@ -113,6 +114,7 @@ Route::middleware(['auth:manager' , 'user-role'])->group(function(){
         Route::get('visitors', [ManagerVistorsController::class, 'index'])->name('manager.vistor.index');
         Route::get('visitors/export', [ManagerVistorsController::class, 'exportExcel'])->name('manager.vistor.export');
         Route::get('visitors/destory/{id}', [ManagerVistorsController::class, 'destory'])->name('manager.vistor.destory');
+        Route::post('visitors/deleteAll', [ManagerVistorsController::class, 'deleteAll'])->name('manager.vistor.deleteAll');
 
         /* setting control */
         Route::get('setting/profile', [ManagerSetController::class, 'profile'])->name('manager.profile.index');

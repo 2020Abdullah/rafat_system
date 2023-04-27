@@ -30,16 +30,20 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
-                        <span class="c-first">مطورين المبيعات</span>
-                        <span class="h3">{{ $agentCount }}</span>
-                    </div>
+                    <a href="{{ route('manager.agent.index') }}">
+                        <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
+                            <span class="c-first">مطورين المبيعات</span>
+                            <span class="h3">{{ $agentCount }}</span>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-6">
-                    <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
-                        <span class="c-first">عدد الزيارات</span>
-                        <span class="h3">{{ $vistorCount }}</span>
-                    </div>
+                    <a href="{{ route('manager.vistor.index') }}">
+                        <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
+                            <span class="c-first">عدد الزيارات</span>
+                            <span class="h3">{{ $vistorCount }}</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

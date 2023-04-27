@@ -42,10 +42,12 @@
                             <input type="hidden" id="latitude" name="lat">
                             <input type="hidden" id="longitude" name="long">
                             <div class="mb-3">
-                                <input type="text" name="vistor_code" class="form-control" placeholder="كود الزيارة"/>
+                                <label>رقم اليوزر</label>
+                                <input type="text" name="vistor_code" class="form-control" placeholder="رقم اليوزر" value="Pos_"/>
                             </div>
                             <div class="mb-3">
-                                <input type="text" name="vistor_phone" class="form-control" placeholder="رقم هاتف صاحب اليوزر"/>
+                                <label>رقم  هاتف صاحب اليوزر</label>
+                                <input type="text" name="vistor_phone" class="form-control" placeholder="رقم هاتف صاحب اليوزر" value="05" maxlength="10"/>
                             </div>
                             <div class="mb-3">
                                 <input type="text" name="vistor_balance" class="form-control" placeholder="كم الرصيد في اليوزر"/>
@@ -63,7 +65,7 @@
                             <div class="mb-3">
                                 <button type="button" class="btn outlined c-third o-third fnt-xxs" id="location">
                                     تسجيل موقعك
-                               </button>              
+                               </button>
                             </div>
 
 

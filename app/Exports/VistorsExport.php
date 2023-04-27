@@ -21,7 +21,7 @@ class VistorsExport implements FromCollection, WithHeadings, WithEvents
     }
     public function headings(): array
     {
-        return ["اسم المطور", "اسم المشرف" , "رقم التقرير", "رقم اليوزر", "رصيد اليوزر", "عدد الشرائح", "عدد التفعيلات", "ملاحظات", "خطوط الطول", "خطوط العرض"];
+        return ["اسم المطور", "اسم المشرف" , "كود اليوزر", "رقم جوال اليوزر", "رصيد اليوزر", "عدد الشرائح", "عدد التفعيلات", "ملاحظات", "خطوط الطول", "خطوط العرض"];
     }
     public function registerEvents(): array
     {

@@ -76,12 +76,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="support" role="tabpanel">
-                                <div>
-                                    <p>للتواصل مع المطور وطلب برامج وأنظمة يرجي التوصل مع هذا الرقم</p>
-                                    <p>01095314681</p>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

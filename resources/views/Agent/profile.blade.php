@@ -35,7 +35,7 @@
                       <div class="card-body">
                         <div class="profile_img">
                             <!-- ضع صورتك هنا-->
-                            <img src="https://picsum.photos/id/20/200/200" alt="logo">
+                            <img src="{{asset('svg/logo.svg')}}" alt="svg/logo.svg">
                         </div>
                         <div class="list-group list-group-flush" role="tablist">
                             <a class="list-group-item list-group-item-action active" data-toggle="list" href="#profile" role="tab">
@@ -80,7 +80,7 @@
                             <div class="tab-pane fade" id="support" role="tabpanel">
                                 <div>
                                     <p>للتواصل مع الدعم يرجي الإتصال علي هذا الرقم</p>
-                                    <p>01095314681</p>
+                                    <p>0570001151</p>
                                 </div>
                             </div>
                         </div>

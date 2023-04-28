@@ -23,7 +23,7 @@ class vistorsManagerExport implements FromCollection, WithHeadings, WithEvents
     */
     public function collection()
     {
-        return Vistor::where('vistors.manager_id', $this->user)->join('agents', 'vistors.Agent_id', '=', 'agents.id')->select("vistor_code", "vistor_phone", "vistor_balance", "vistor_count_slides", "vistor_count_activity", "name" , "lat", "long" , "notes")->get();
+        return Vistor::where('vistors.manager_id', $this->user)->join('agents', 'vistors.Agent_id', '=', 'agents.id')->select("vistor_code", "vistor_phone", "vistor_balance", "vistor_count_slides", "vistor_count_activity", "agents.name as agent" , "lat", "long" , "notes")->get();
     }
 
     public function headings(): array

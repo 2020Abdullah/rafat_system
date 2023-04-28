@@ -59,9 +59,9 @@
                     </div>
                 </div>
             </li> --}}
-            <li class="nav-item"> 
+            <li class="nav-item">
                 <!-- ضع صورتك هنا-->
-                <img src="https://picsum.photos/id/20/20/20" alt="logo">
+                <img src="{{asset('svg/logo.svg')}}" alt="svg/logo.svg" width="40" height="40">
             </li>
             <li class="nav-item">
                 <div class="dropdown">

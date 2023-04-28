@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class VistorsController extends Controller
 {
     public function index(){
-        $Allreports = Vistor::where('Agent_id', auth('agent')->user()->id)->get();
+        $Allreports = Vistor::where('Agent_id', auth('agent')->user()->id)->latest()->paginate(10);
         return view('Agent.index', compact('Allreports'));
     }
     public function create(){

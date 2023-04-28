@@ -98,6 +98,9 @@
                         </div>
                     </table>
                 </div>
+                <div class="d-flex">
+                    {{ $Allreports->links()}}
+                </div>
             </div>
         </div>
     </main>

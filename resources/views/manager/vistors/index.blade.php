@@ -81,7 +81,7 @@
                                     <a class="btn main f-danger fnt-xxs" href="{{ route('manager.vistor.destory', $reports->id) }}">حذف</a>
                                 </td>
                             </tr>
-                            @endforeach
+                        @endforeach
                         <!-- Modal location -->
                         <div class="modal fade" id="locationModel" data-bs-keyboard="true" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog">
@@ -97,6 +97,9 @@
                             </div>
                         </div>
                     </table>
+                </div>
+                <div class="d-flex">
+                    {{ $Allreports->links()}}
                 </div>
             </div>
         </div>

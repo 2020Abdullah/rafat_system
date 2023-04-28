@@ -11,7 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class VistorsController extends Controller
 {
     public function index(){
-        $Allreports = Vistor::all();
+        $Allreports = Vistor::latest()->paginate(10);
         return view('admin.vistors.index', compact('Allreports'));
     }
     public function exportExcel(){

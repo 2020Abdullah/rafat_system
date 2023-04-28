@@ -55,9 +55,9 @@
                             <td>رصيد اليوزر</td>
                             <td>عدد الشرائح</td>
                             <td>عدد التفعيلات</td>
-                            <td>ملاحظات</td>
                             <td>اسم المطور</td>
                             <td>اسم المشرف</td>
+                            <td>ملاحظات</td>
                             <td>الموقع</td>
                             <td>اتخاذ إجراء</td>
                         </tr>
@@ -71,9 +71,9 @@
                                 <td>{{ $reports->vistor_balance }}</td>
                                 <td>{{ $reports->vistor_count_slides }}</td>
                                 <td>{{ $reports->vistor_count_activity }}</td>
-                                <td>{{ $reports->notes }}</td>
                                 <td>{{ $reports->agent->name }}</td>
                                 <td>{{ $reports->manager->name }}</td>
+                                <td>{{ $reports->notes }}</td>
                                 <td>
                                     <button  type="button" class="btn main f-second fnt-xxs showloc" data-lat="{{ $reports->lat }}" data-long="{{$reports->long }}">عرض</button>
                                 </td>
@@ -134,9 +134,9 @@
             let recardsIds = [];
 
             $.each($('.checkbox:checked'), function(){
-                recardsIds.push($(this).val());    
+                recardsIds.push($(this).val());
             })
-            
+
             $('#recardsIds').val(JSON.stringify(recardsIds));
 
             if(recardsIds.length > 0){
@@ -148,7 +148,7 @@
 
                 $('#deleteAll').attr('disabled', true);
             }
-        
+
         }
 
         $("form").on('submit', function(){

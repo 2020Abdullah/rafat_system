@@ -59,7 +59,7 @@
                                 <input type="text" name="vistor_count_activity" class="form-control" placeholder="كم عدد التفعيلات"/>
                             </div>
                             <div class="mb-3">
-                                <textarea name="notes" class="form-control" id="notes" cols="20" rows="10" placeholder="ملاحظات"></textarea>
+                                <textarea name="notes" class="form-control" id="notes" cols="20" rows="10" placeholder="ملاحظات" required></textarea>
                             </div>
 
                             <div class="mb-3">

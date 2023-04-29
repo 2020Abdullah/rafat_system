@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 26, 2023 at 09:45 PM
+-- Generation Time: Apr 29, 2023 at 09:48 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.0
 
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `agents` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `profile_img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profile_img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `manager_id` bigint UNSIGNED NOT NULL,
   `status` tinyint NOT NULL DEFAULT '1',
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -61,11 +61,11 @@ INSERT INTO `agents` (`id`, `name`, `email`, `email_verified_at`, `password`, `p
 
 CREATE TABLE `failed_jobs` (
   `id` bigint UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -77,14 +77,14 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `managers` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `Added_by` int NOT NULL DEFAULT '0',
-  `profile_img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint NOT NULL DEFAULT '1',
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -97,7 +97,8 @@ INSERT INTO `managers` (`id`, `name`, `email`, `email_verified_at`, `password`, 
 (1, 'abdallah', 'manager@example.com', NULL, '$2y$10$hgUSZRZAxIJ556033srkY.wWalzQy6NgI5nn8.NdvstJ.46eI.Oye', 1, '1681765640face3.jpg', 1, NULL, '2023-04-15 23:14:03', '2023-04-17 19:07:20'),
 (2, 'انس', 'anas@gmail.com', NULL, '$2y$10$polSRH3ySaoxO8d2O6q5Yuyu58vJbkYPO1fc/CTrF6tTQoPkkIuN2', 1, '1681794705IMG_20230417_210838.jpg', 1, NULL, '2023-04-18 09:02:41', '2023-04-18 09:11:45'),
 (3, 'بدر', 'badr@gmail.com', NULL, '$2y$10$pymhqcvM6YJOG02N/P7g3O1R0LbtF/mchDJEl6zFSf49DjiQcVy5K', 1, NULL, 1, NULL, '2023-04-18 09:03:46', '2023-04-18 09:03:46'),
-(4, 'Ahmed', 'ahmed@gmail.com', NULL, '$2y$10$bLqutVdVI9k5lwSZpYJS2OF0ZdH3gAKtxoIet.43aBNBb/mc21NR2', 1, NULL, 1, NULL, '2023-04-18 14:14:04', '2023-04-18 14:14:04');
+(4, 'Ahmed', 'ahmed@gmail.com', NULL, '$2y$10$bLqutVdVI9k5lwSZpYJS2OF0ZdH3gAKtxoIet.43aBNBb/mc21NR2', 1, NULL, 1, NULL, '2023-04-18 14:14:04', '2023-04-18 14:14:04'),
+(5, 'mohamad Radwan', 'mohamad@example.com', NULL, '$2y$10$6uDHp9dAqMw66XSmgX3q8uczVS1RJTqkACz81y8LCemamHulL7wRa', 1, NULL, 1, NULL, '2023-04-29 06:18:16', '2023-04-29 06:18:16');
 
 -- --------------------------------------------------------
 
@@ -107,7 +108,7 @@ INSERT INTO `managers` (`id`, `name`, `email`, `email_verified_at`, `password`, 
 
 CREATE TABLE `migrations` (
   `id` int UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -132,8 +133,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -144,8 +145,8 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -157,11 +158,11 @@ CREATE TABLE `password_reset_tokens` (
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -176,14 +177,14 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` int NOT NULL DEFAULT '1',
-  `profile_img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Added_by` int DEFAULT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -193,7 +194,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `profile_img`, `Added_by`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Rafat Badr', 'rafat@gmail.com', NULL, '$2y$10$BoDftzAFbz2kTG76MjQqAOBS725a.zfcqbHQNUz2AeUhls1RvkJh.', 1, '1682169371mySalamLogo-min (1).png', NULL, NULL, '2023-04-12 21:14:37', '2023-04-22 17:16:12');
+(1, 'Rafat Badr', 'rafat@gmail.com', NULL, '$2y$10$BoDftzAFbz2kTG76MjQqAOBS725a.zfcqbHQNUz2AeUhls1RvkJh.', 1, '1682759669face4.jpg', NULL, NULL, '2023-04-12 21:14:37', '2023-04-29 06:14:29');
 
 -- --------------------------------------------------------
 
@@ -203,16 +204,17 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `ro
 
 CREATE TABLE `vistors` (
   `id` bigint UNSIGNED NOT NULL,
-  `vistor_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `vistor_phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `vistor_balance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `vistor_count_slides` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `vistor_count_activity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vistor_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `vistor_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vistor_balance` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vistor_count_slides` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vistor_count_activity` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `lat` decimal(10,8) NOT NULL,
   `long` decimal(10,8) NOT NULL,
-  `notes` text COLLATE utf8mb4_unicode_ci,
+  `notes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `Agent_id` bigint UNSIGNED NOT NULL,
   `manager_id` bigint UNSIGNED NOT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -221,12 +223,14 @@ CREATE TABLE `vistors` (
 -- Dumping data for table `vistors`
 --
 
-INSERT INTO `vistors` (`id`, `vistor_code`, `vistor_phone`, `vistor_balance`, `vistor_count_slides`, `vistor_count_activity`, `lat`, `long`, `notes`, `Agent_id`, `manager_id`, `created_at`, `updated_at`) VALUES
-(1, '2001', '010932521322', '1000', '10', '5', '30.14732740', '31.34840430', 'تم البيع', 1, 1, '2023-04-17 10:52:02', '2023-04-17 10:52:02'),
-(2, '204', '34444344', '9876', '3', '1', '31.03201340', '30.46234820', 'test', 2, 1, '2023-04-18 08:53:43', '2023-04-18 08:53:43'),
-(3, '1234', '0134678854', '7000', '4', '3', '31.03184020', '30.46229000', 'عم رافت صح الصح', 4, 2, '2023-04-18 09:19:44', '2023-04-18 09:19:44'),
-(4, '2010', '0987654321', '4', '6', '7', '31.03134180', '30.46210110', 'test', 5, 3, '2023-04-18 14:04:45', '2023-04-18 14:04:45'),
-(5, '55', '٠١٠٩٨٢٤٥٩١٨', '333', '4333', '555', '30.26700945', '31.49199324', 'Tast', 4, 2, '2023-04-22 18:08:31', '2023-04-22 18:08:31');
+INSERT INTO `vistors` (`id`, `vistor_code`, `vistor_phone`, `vistor_balance`, `vistor_count_slides`, `vistor_count_activity`, `lat`, `long`, `notes`, `Agent_id`, `manager_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, '2001', '010932521322', '1000', '10', '5', '30.14732740', '31.34840430', 'تم البيع', 1, 1, 0, '2023-04-17 10:52:02', '2023-04-29 05:41:14'),
+(2, '204', '34444344', '9876', '3', '1', '31.03201340', '30.46234820', 'test', 2, 1, 1, '2023-04-18 08:53:43', '2023-04-18 08:53:43'),
+(3, '1234', '0134678854', '7000', '4', '3', '31.03184020', '30.46229000', 'عم رافت صح الصح', 4, 2, 1, '2023-04-18 09:19:44', '2023-04-18 09:19:44'),
+(4, '2010', '0987654321', '4', '6', '7', '31.03134180', '30.46210110', 'test', 5, 3, 1, '2023-04-18 14:04:45', '2023-04-18 14:04:45'),
+(5, '55', '٠١٠٩٨٢٤٥٩١٨', '333', '4333', '555', '30.26700945', '31.49199324', 'Tast', 4, 2, 1, '2023-04-22 18:08:31', '2023-04-22 18:08:31'),
+(6, 'Pos_20', '05', '2000', '20', '10', '30.14734450', '31.34839830', 'تم البيع', 1, 1, 0, '2023-04-29 05:33:44', '2023-04-29 05:41:14'),
+(7, 'Pos_21', '0562148231', '10000', '50', '20', '30.14734460', '31.34839470', 'تم البيع', 1, 1, 1, '2023-04-29 05:40:40', '2023-04-29 05:40:40');
 
 --
 -- Indexes for dumped tables
@@ -315,7 +319,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `managers`
 --
 ALTER TABLE `managers`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -339,7 +343,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vistors`
 --
 ALTER TABLE `vistors`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

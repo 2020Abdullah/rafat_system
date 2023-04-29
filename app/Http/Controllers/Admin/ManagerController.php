@@ -10,17 +10,20 @@ use Illuminate\Support\Facades\Hash;
 
 class ManagerController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $managers = Manager::all();
         return view('admin.manager.index', compact('managers'));
     }
-    public function create(){
+    public function create()
+    {
         return view('admin.manager.create');
     }
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $this->validate($request, [
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|confirmed',
         ]);
 
         Manager::create([
@@ -32,13 +35,15 @@ class ManagerController extends Controller
 
         return redirect()->route('admin.manager.index')->with('success', 'تم إضافة المشرف بنجاح');
     }
-    public function stopManager($id){
+    public function stopManager($id)
+    {
         Manager::where('id', $id)->update([
             'status' => 0
         ]);
         return redirect()->route('admin.manager.index')->with('success', 'تم تعطيل حساب المشرف');
     }
-    public function activeManager($id){
+    public function activeManager($id)
+    {
         Manager::where('id', $id)->update([
             'status' => 1
         ]);

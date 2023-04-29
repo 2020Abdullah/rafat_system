@@ -6,7 +6,6 @@ use App\Http\Controllers\Admin\ManagerController as AdminManagerController;
 use App\Http\Controllers\Admin\VistorsController as AdminVistorsController;
 use App\Http\Controllers\Agent\AgentSetController;
 use App\Http\Controllers\Agent\VistorsController;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Manager\AgentController;
 use App\Http\Controllers\Manager\ManagerSetController;
@@ -49,8 +48,8 @@ All admin Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::middleware(['auth'])->group(function(){
-    Route::group(['prefix' => 'admin'] , function(){
+Route::middleware(['auth'])->group(function () {
+    Route::group(['prefix' => 'admin'], function () {
         Route::get('dashboard', [HomeController::class, 'adminHome'])->name('admin.dashboard');
 
         /* manager control moduls*/
@@ -76,7 +75,6 @@ Route::middleware(['auth'])->group(function(){
         /* setting control */
         Route::get('setting/profile', [AdminSetController::class, 'profile'])->name('admin.profile.index');
         Route::post('setting/profile/update', [AdminSetController::class, 'profileupdate'])->name('admin.profile.update');
-
     });
 });
 
@@ -86,7 +84,7 @@ All Agent Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::middleware(['auth:agent' , 'user-role'])->group(function(){
+Route::middleware(['auth:agent', 'user-role'])->group(function () {
     Route::get('Agent/dashboard', [HomeController::class, 'agentHome'])->name('Agent.dashboard');
     Route::get('visitors', [VistorsController::class, 'index'])->name('vistor.index');
     Route::get('visitors/create', [VistorsController::class, 'create'])->name('vistor.create');
@@ -102,8 +100,8 @@ All manager Users Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::middleware(['auth:manager' , 'user-role'])->group(function(){
-    Route::group(['prefix' => 'manager'], function(){
+Route::middleware(['auth:manager', 'user-role'])->group(function () {
+    Route::group(['prefix' => 'manager'], function () {
         Route::get('dashboard', [HomeController::class, 'managerHome'])->name('manager.dashboard');
         /* agent control moduls */
         Route::get('agent/index', [AgentController::class, 'index'])->name('manager.agent.index');

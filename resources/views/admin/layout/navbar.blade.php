@@ -59,7 +59,9 @@
                     </div>
                 </div>
             </li> --}}
-            <li class="nav-item"> <img src="{{ asset('/storage/images/'. auth('web')->user()->profile_img) }}" alt="..." class="rounded-circle screen-user-profile"></li>
+            <li class="nav-item">
+                <img class="rounded-circle screen-user-profile" src="{{ asset('images/' . auth('web')->user()->profile_img ) }}" alt="logo">
+            </li>
             <li class="nav-item">
                 <div class="dropdown">
                     <button class="btn  dropdown-toggle m-0" type="button" id="dropdownMenu4" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

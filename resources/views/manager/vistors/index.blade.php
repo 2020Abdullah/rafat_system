@@ -119,7 +119,7 @@
             $('#locationModel').modal('toggle')
         })
 
-               // user select only
+        // user select only
 
                $(".checkbox").on('change', function(){
             getRecoards();

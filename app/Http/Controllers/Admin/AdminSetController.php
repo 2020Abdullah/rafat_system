@@ -8,29 +8,31 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminSetController extends Controller
 {
-    public function profile(){
+    public function profile()
+    {
         return view('admin.profile');
     }
-    public function profileupdate(Request $request){
-        if($request->hasFile('image')){
-            
-            $file_path = asset('storage/images/' . auth('web')->user()->profile_img);
 
-            if(file_exists($file_path)){
+    public function profileupdate(Request $request)
+    {
+        if ($request->hasFile('image')) {
+
+            $file_path = public_path('/images/' . auth('web')->user()->profile_img);
+
+            if (file_exists($file_path)) {
                 unlink($file_path);
-                return 'ok';
             }
 
             $filename = $request->image->getClientOriginalName();
 
             $generatefile = time() . $filename;
 
-            $request->image->storeAs('images' , $generatefile , 'public');
+            $request->image->move('images', $generatefile);
 
-            auth()->user()->update(['profile_img'=> $generatefile]);
+            auth()->user()->update(['profile_img' => $generatefile]);
         }
 
-        if($request->password !== null){
+        if ($request->password !== null) {
             auth()->user()->update([
                 'password'  => Hash::make($request->password)
             ]);

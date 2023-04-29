@@ -34,7 +34,7 @@
                     <div class="jumbotron glass profile">
                       <div class="card-body">
                         <div class="profile_img">
-                            <img src="{{ asset('/storage/images/'. auth('web')->user()->profile_img) }}" alt="logo">
+                            <img src="{{ asset('images/' . auth('web')->user()->profile_img ) }}" alt="logo">
                         </div>
                         <div class="list-group list-group-flush" role="tablist">
                             <a class="list-group-item list-group-item-action active" data-toggle="list" href="#profile" role="tab">

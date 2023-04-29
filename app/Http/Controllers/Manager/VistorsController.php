@@ -11,31 +11,38 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class VistorsController extends Controller
 {
-    public function index(){
-        $Allreports = Vistor::where('manager_id', auth('manager')->user()->id)->latest()->paginate(10);
+    public function index()
+    {
+        $Allreports = Vistor::where('status', 1)->where('manager_id', auth('manager')->user()->id)->latest()->paginate(10);
         return view('manager.vistors.index', compact('Allreports'));
     }
 
-    public function exportExcel(){
+    public function exportExcel()
+    {
 
         $user_id = auth('manager')->user()->id;
 
         return Excel::download(new vistorsManagerExport($user_id), 'Vistors.xlsx');
-
     }
 
-    public function destory($id){
-        Vistor::where('id', $id)->delete();
+    public function destory($id)
+    {
+        Vistor::where('id', $id)->update([
+            'status' => 0
+        ]);
         return back()->with('success', 'تم حذف التقرير بنجاح');
     }
-    public function deleteAll(Request $request){
+
+    public function deleteAll(Request $request)
+    {
         $recardsIds = json_decode($request->recardsIds);
 
         $vistors = Vistor::whereIn('id', $recardsIds);
 
-        $vistors->delete();
+        $vistors->update([
+            'status' => 0
+        ]);
 
         return back()->with('success', 'تم حذف جميع التقارير بنجاح');
-
     }
 }

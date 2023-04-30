@@ -43,6 +43,8 @@
                             <td>رصيد اليوزر</td>
                             <td>عدد الشرائح</td>
                             <td>عدد التفعيلات</td>
+                            <td>تاريخ الزيارة</td>
+                            <td>وقت الزيارة</td>
                             <td>ملاحظات</td>
                             <td>الموقع</td>
                         </tr>
@@ -55,6 +57,8 @@
                                 <td>{{ $reports->vistor_balance }}</td>
                                 <td>{{ $reports->vistor_count_slides }}</td>
                                 <td>{{ $reports->vistor_count_activity }}</td>
+                                <td>{{ $reports->date }}</td>
+                                <td>{{ $reports->time }}</td>
                                 <td>{{ $reports->notes }}</td>
                                 <td>
                                     <button  type="button" class="btn main f-second fnt-xxs showloc" data-lat="{{ $reports->lat }}" data-long="{{$reports->long }}">عرض</button>

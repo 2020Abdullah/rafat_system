@@ -7,18 +7,22 @@ use App\Http\Requests\vistorRequest;
 use App\Models\Agent;
 use App\Models\Manager;
 use App\Models\Vistor;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class VistorsController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $Allreports = Vistor::where('Agent_id', auth('agent')->user()->id)->latest()->paginate(10);
         return view('Agent.index', compact('Allreports'));
     }
-    public function create(){
+    public function create()
+    {
         return view('Agent.create');
     }
-    public function store(vistorRequest $request){
+    public function store(vistorRequest $request)
+    {
         $manager_id = Agent::where('id', auth('agent')->user()->id)->pluck('manager_id')->first();
         Vistor::create([
             'vistor_code' => $request->vistor_code,
@@ -28,6 +32,8 @@ class VistorsController extends Controller
             'vistor_count_activity' => $request->vistor_count_activity,
             'lat' => $request->lat,
             'long' => $request->long,
+            'date' =>  Carbon::today(),
+            'time' => Carbon::now(),
             'notes' => $request->notes,
             'Agent_id' => auth('agent')->user()->id,
             'manager_id' => $manager_id,

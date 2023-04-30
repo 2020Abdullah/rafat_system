@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 29, 2023 at 09:48 AM
+-- Generation Time: Apr 30, 2023 at 07:48 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.0
 
@@ -98,7 +98,7 @@ INSERT INTO `managers` (`id`, `name`, `email`, `email_verified_at`, `password`, 
 (2, 'انس', 'anas@gmail.com', NULL, '$2y$10$polSRH3ySaoxO8d2O6q5Yuyu58vJbkYPO1fc/CTrF6tTQoPkkIuN2', 1, '1681794705IMG_20230417_210838.jpg', 1, NULL, '2023-04-18 09:02:41', '2023-04-18 09:11:45'),
 (3, 'بدر', 'badr@gmail.com', NULL, '$2y$10$pymhqcvM6YJOG02N/P7g3O1R0LbtF/mchDJEl6zFSf49DjiQcVy5K', 1, NULL, 1, NULL, '2023-04-18 09:03:46', '2023-04-18 09:03:46'),
 (4, 'Ahmed', 'ahmed@gmail.com', NULL, '$2y$10$bLqutVdVI9k5lwSZpYJS2OF0ZdH3gAKtxoIet.43aBNBb/mc21NR2', 1, NULL, 1, NULL, '2023-04-18 14:14:04', '2023-04-18 14:14:04'),
-(5, 'mohamad Radwan', 'mohamad@example.com', NULL, '$2y$10$6uDHp9dAqMw66XSmgX3q8uczVS1RJTqkACz81y8LCemamHulL7wRa', 1, NULL, 1, NULL, '2023-04-29 06:18:16', '2023-04-29 06:18:16');
+(5, 'mohamad Radwan', 'mohamad@example.com', NULL, '$2y$10$6uDHp9dAqMw66XSmgX3q8uczVS1RJTqkACz81y8LCemamHulL7wRa', 1, NULL, 1, NULL, '2023-04-29 06:18:16', '2023-04-30 16:35:41');
 
 -- --------------------------------------------------------
 
@@ -211,6 +211,8 @@ CREATE TABLE `vistors` (
   `vistor_count_activity` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `lat` decimal(10,8) NOT NULL,
   `long` decimal(10,8) NOT NULL,
+  `date` date DEFAULT NULL,
+  `time` time DEFAULT NULL,
   `notes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `Agent_id` bigint UNSIGNED NOT NULL,
   `manager_id` bigint UNSIGNED NOT NULL,
@@ -223,14 +225,16 @@ CREATE TABLE `vistors` (
 -- Dumping data for table `vistors`
 --
 
-INSERT INTO `vistors` (`id`, `vistor_code`, `vistor_phone`, `vistor_balance`, `vistor_count_slides`, `vistor_count_activity`, `lat`, `long`, `notes`, `Agent_id`, `manager_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, '2001', '010932521322', '1000', '10', '5', '30.14732740', '31.34840430', 'تم البيع', 1, 1, 0, '2023-04-17 10:52:02', '2023-04-29 05:41:14'),
-(2, '204', '34444344', '9876', '3', '1', '31.03201340', '30.46234820', 'test', 2, 1, 1, '2023-04-18 08:53:43', '2023-04-18 08:53:43'),
-(3, '1234', '0134678854', '7000', '4', '3', '31.03184020', '30.46229000', 'عم رافت صح الصح', 4, 2, 1, '2023-04-18 09:19:44', '2023-04-18 09:19:44'),
-(4, '2010', '0987654321', '4', '6', '7', '31.03134180', '30.46210110', 'test', 5, 3, 1, '2023-04-18 14:04:45', '2023-04-18 14:04:45'),
-(5, '55', '٠١٠٩٨٢٤٥٩١٨', '333', '4333', '555', '30.26700945', '31.49199324', 'Tast', 4, 2, 1, '2023-04-22 18:08:31', '2023-04-22 18:08:31'),
-(6, 'Pos_20', '05', '2000', '20', '10', '30.14734450', '31.34839830', 'تم البيع', 1, 1, 0, '2023-04-29 05:33:44', '2023-04-29 05:41:14'),
-(7, 'Pos_21', '0562148231', '10000', '50', '20', '30.14734460', '31.34839470', 'تم البيع', 1, 1, 1, '2023-04-29 05:40:40', '2023-04-29 05:40:40');
+INSERT INTO `vistors` (`id`, `vistor_code`, `vistor_phone`, `vistor_balance`, `vistor_count_slides`, `vistor_count_activity`, `lat`, `long`, `date`, `time`, `notes`, `Agent_id`, `manager_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, '2001', '010932521322', '1000', '10', '5', '30.14732740', '31.34840430', NULL, NULL, 'تم البيع', 1, 1, 0, '2023-04-17 10:52:02', '2023-04-29 05:41:14'),
+(2, '204', '34444344', '9876', '3', '1', '31.03201340', '30.46234820', NULL, NULL, 'test', 2, 1, 1, '2023-04-18 08:53:43', '2023-04-18 08:53:43'),
+(3, '1234', '0134678854', '7000', '4', '3', '31.03184020', '30.46229000', NULL, NULL, 'عم رافت صح الصح', 4, 2, 1, '2023-04-18 09:19:44', '2023-04-18 09:19:44'),
+(4, '2010', '0987654321', '4', '6', '7', '31.03134180', '30.46210110', NULL, NULL, 'test', 5, 3, 1, '2023-04-18 14:04:45', '2023-04-18 14:04:45'),
+(5, '55', '٠١٠٩٨٢٤٥٩١٨', '333', '4333', '555', '30.26700945', '31.49199324', NULL, NULL, 'Tast', 4, 2, 1, '2023-04-22 18:08:31', '2023-04-22 18:08:31'),
+(6, 'Pos_20', '05', '2000', '20', '10', '30.14734450', '31.34839830', NULL, NULL, 'تم البيع', 1, 1, 0, '2023-04-29 05:33:44', '2023-04-29 05:41:14'),
+(7, 'Pos_21', '0562148231', '10000', '50', '20', '30.14734460', '31.34839470', NULL, NULL, 'تم البيع', 1, 1, 1, '2023-04-29 05:40:40', '2023-04-29 05:40:40'),
+(8, 'Pos_4000', '0562789213', '4000', '4', '10', '30.14734040', '31.34839200', '2023-04-30', '19:16:00', NULL, 3, 3, 1, '2023-04-30 13:16:40', '2023-04-30 13:16:40'),
+(9, 'Pos_5000', '0512432566', '5000', '50', '5', '30.14734150', '31.34838370', '2023-04-30', '19:37:00', NULL, 3, 3, 1, '2023-04-30 16:37:00', '2023-04-30 16:37:00');
 
 --
 -- Indexes for dumped tables
@@ -343,7 +347,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vistors`
 --
 ALTER TABLE `vistors`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

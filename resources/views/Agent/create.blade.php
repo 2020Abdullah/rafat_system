@@ -58,8 +58,9 @@
                             <div class="mb-3">
                                 <input type="text" name="vistor_count_activity" class="form-control" placeholder="كم عدد التفعيلات"/>
                             </div>
+
                             <div class="mb-3">
-                                <textarea name="notes" class="form-control" id="notes" cols="20" rows="10" placeholder="ملاحظات" required></textarea>
+                                <input type="text" name="vistor_count_activity" class="form-control" placeholder="كم عدد التفعيلات"/>
                             </div>
 
                             <div class="mb-3">
@@ -67,8 +68,6 @@
                                     تسجيل موقعك
                                </button>
                             </div>
-
-
 
                             <div class="mb-3">
                                 <input type="submit" class="btn flat f-second btn-block fnt-xxs" value="حفظ">

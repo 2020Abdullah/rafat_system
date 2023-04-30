@@ -12,7 +12,7 @@ class ManagerController extends Controller
 {
     public function index()
     {
-        $managers = Manager::all();
+        $managers = Manager::where('status', 1)->get();
         return view('admin.manager.index', compact('managers'));
     }
     public function create()
@@ -30,7 +30,7 @@ class ManagerController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'Added_by' => Auth::user()->id
+            'Added_by' => Auth::user()->id,
         ]);
 
         return redirect()->route('admin.manager.index')->with('success', 'تم إضافة المشرف بنجاح');

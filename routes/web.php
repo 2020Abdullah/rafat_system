@@ -58,6 +58,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('Manager/store', [AdminManagerController::class, 'store'])->name('admin.manager.store');
         Route::get('Manager/{id}/stop', [AdminManagerController::class, 'stopManager'])->name('admin.manager.delete');
         Route::get('Manager/{id}/active', [AdminManagerController::class, 'activeManager'])->name('admin.manager.active');
+        Route::get('Manager/delete/{id}', [AdminManagerController::class, 'destory'])->name('admin.manager.destory');
 
         /* agent control moduls*/
         Route::get('agent/index', [AdminAgentController::class, 'index'])->name('admin.agent.index');
@@ -65,6 +66,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('agent/store', [AdminAgentController::class, 'store'])->name('admin.agent.store');
         Route::get('agent/{id}/stop', [AdminAgentController::class, 'stopAgent'])->name('admin.agent.delete');
         Route::get('agent/{id}/active', [AdminAgentController::class, 'activeAgent'])->name('admin.agent.active');
+        Route::get('agent/delete/{id}', [AdminAgentController::class, 'destory'])->name('admin.agent.destory');
 
         /* vistiros */
         Route::get('visitors', [AdminVistorsController::class, 'index'])->name('admin.vistor.index');

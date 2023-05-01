@@ -63,17 +63,17 @@
                                             <label for="">بريدك الإلكتروني</label>
                                             <input type="text" class="form-control" name="email" value="{{ auth('agent')->user()->email }}" readonly>
                                         </div>
-                                        {{-- <div class="mb-3">
+                                        <div class="mb-3">
                                             <label for="">تغيير كلمة السر</label>
                                             <input type="password" class="form-control" name="password" placeholder="New Password">
-                                        </div> --}}
+                                        </div>
                                         {{-- <div class="mb-3">
                                             <label for="">تغيير صورة البروفايل</label>
                                             <input type="file" class="form-control" name="image">
                                         </div> --}}
-                                        {{-- <div class="mb-3">
+                                        <div class="mb-3">
                                             <input type="submit" value="حفظ" class="btn main f-second btn-block fnt-xxs">
-                                        </div> --}}
+                                        </div>
                                     </form>
                                 </div>
                             </div>

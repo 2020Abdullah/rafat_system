@@ -30,10 +30,12 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
-                        <span class="c-first">عدد تقارير الزيارات المسجلة</span>
-                        <span class="h3">{{ $vistorCount }}</span>
-                    </div>
+                    <a href="{{ route('vistor.index') }}">
+                        <div class="box-card mini animate__animated animate__flipInY   "><i class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
+                            <span class="c-first">عدد تقارير الزيارات المسجلة</span>
+                            <span class="h3">{{ $vistorCount }}</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

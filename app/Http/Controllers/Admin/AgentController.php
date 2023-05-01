@@ -52,4 +52,9 @@ class AgentController extends Controller
         ]);
         return redirect()->route('admin.agent.index')->with('success', 'تم تفعيل الحساب بنجاح');
     }
+    public function destory($id)
+    {
+        Agent::where('id', $id)->delete();
+        return redirect()->route('admin.agent.index')->with('success', 'تم حذف الحساب بنجاح');
+    }
 }

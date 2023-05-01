@@ -12,7 +12,7 @@ class ManagerController extends Controller
 {
     public function index()
     {
-        $managers = Manager::where('status', 1)->get();
+        $managers = Manager::all();
         return view('admin.manager.index', compact('managers'));
     }
     public function create()
@@ -48,5 +48,11 @@ class ManagerController extends Controller
             'status' => 1
         ]);
         return redirect()->route('admin.manager.index')->with('success', 'تم تفعيل الحساب بنجاح');
+    }
+
+    public function destory($id)
+    {
+        Manager::where('id', $id)->delete();
+        return redirect()->route('admin.manager.index')->with('success', 'تم حذف الحساب بنجاح');
     }
 }

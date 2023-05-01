@@ -55,6 +55,7 @@
                                     @else
                                         <a class="btn flat f-second fnt-xxs" href="{{ route('admin.manager.active', $manager->id) }}">تفعيل</a>
                                     @endif
+                                    <a class="btn outlined c-danger o-danger fnt-xxs" href="{{ route('admin.manager.destory', $manager->id) }}">حذف</a>
                                 </td>
                             </tr>
                         @empty

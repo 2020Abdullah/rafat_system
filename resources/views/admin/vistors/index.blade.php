@@ -57,6 +57,7 @@
                             <td>عدد التفعيلات</td>
                             <td>اسم المطور</td>
                             <td>اسم المشرف</td>
+                            <td>وقت الزيارة</td>
                             <td>ملاحظات</td>
                             <td>الموقع</td>
                             <td>اتخاذ إجراء</td>
@@ -73,6 +74,7 @@
                                 <td>{{ $reports->vistor_count_activity }}</td>
                                 <td>{{ $reports->agent->name }}</td>
                                 <td>{{ $reports->manager->name }}</td>
+                                <td>{{ Carbon\Carbon::parse($reports->created_at)->format('d-m-Y g:i:s A') }}</td>
                                 <td>{{ $reports->notes }}</td>
                                 <td>
                                     <button  type="button" class="btn main f-second fnt-xxs showloc" data-lat="{{ $reports->lat }}" data-long="{{$reports->long }}">عرض</button>

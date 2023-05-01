@@ -32,7 +32,7 @@
             <div class="jumbotron shade pt-5">
                 <div class="table-title-action">
                     <h3 class="display-4">جدول المطورين</h3>
-                    <a href="{{ route('manager.agent.create') }}" class="btn main f-first fnt-xxs">إضافة مطور مبيعات جديد</a>
+                    <!-- <a href="{{ route('manager.agent.create') }}" class="btn main f-first fnt-xxs">إضافة مطور مبيعات جديد</a> -->
                 </div>
                 <hr/>
                 <div class="table-responsive">

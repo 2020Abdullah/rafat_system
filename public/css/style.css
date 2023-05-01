@@ -2,7 +2,7 @@
 /*
 input form
 ==========================
-*/ 
+*/
 .custom-file-control, .form-control {
     padding-right: 5px;
 }
@@ -14,7 +14,7 @@ input form
 /*
 fix sidebar links
 ==========================
-*/ 
+*/
 .side.a-collapse {
     margin-bottom: 20px;
 }
@@ -63,3 +63,7 @@ profile setting
     cursor: not-allowed;
     pointer-events: all;
 }
+
+    .modal-header .btn-close {
+        margin: 0 !important;
+    }

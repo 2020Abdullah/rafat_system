@@ -43,24 +43,24 @@
                             <input type="hidden" id="longitude" name="long">
                             <div class="mb-3">
                                 <label>رقم اليوزر</label>
-                                <input type="text" name="vistor_code" class="form-control" placeholder="رقم اليوزر" value="Pos_"/>
+                                <input required type="text" name="vistor_code" class="form-control" placeholder="رقم اليوزر" value="Pos_" minlength="10" maxlength="10"/>
                             </div>
                             <div class="mb-3">
-                                <label>رقم  هاتف صاحب اليوزر</label>
-                                <input type="text" name="vistor_phone" class="form-control" placeholder="رقم هاتف صاحب اليوزر" value="05" maxlength="10"/>
+                                <label>رقم  جوال صاحب اليوزر</label>
+                                <input required type="text" name="vistor_phone" class="form-control" placeholder="رقم جوال صاحب اليوزر" value="05" minlength="10" maxlength="10"/>
                             </div>
                             <div class="mb-3">
-                                <input type="text" name="vistor_balance" class="form-control" placeholder="كم الرصيد في اليوزر"/>
+                                <input required type="text" name="vistor_balance" class="form-control" placeholder="كم الرصيد في اليوزر"/>
                             </div>
                             <div class="mb-3">
-                                <input type="text" name="vistor_count_slides" class="form-control" placeholder="كم عدد الشرائح الجديدة"/>
+                                <input required type="text" name="vistor_count_slides" class="form-control" placeholder="كم عدد الشرائح الجديدة"/>
                             </div>
                             <div class="mb-3">
-                                <input type="text" name="vistor_count_activity" class="form-control" placeholder="كم عدد التفعيلات"/>
+                                <input required type="text" name="vistor_count_activity" class="form-control" placeholder="كم عدد التفعيلات"/>
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" name="vistor_count_activity" class="form-control" placeholder="كم عدد التفعيلات"/>
+                                <textarea name="notes" class="form-control" id="notes" cols="20" rows="10" placeholder="ملاحظات" required></textarea>
                             </div>
 
                             <div class="mb-3">

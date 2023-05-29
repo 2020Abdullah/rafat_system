@@ -41,26 +41,70 @@
                             @csrf
                             <input type="hidden" id="latitude" name="lat">
                             <input type="hidden" id="longitude" name="long">
-                            <div class="mb-3">
-                                <label>رقم اليوزر</label>
-                                <input required type="text" name="vistor_code" class="form-control" placeholder="رقم اليوزر" value="Pos_" minlength="10" maxlength="10"/>
-                            </div>
-                            <div class="mb-3">
-                                <label>رقم  جوال صاحب اليوزر</label>
-                                <input required type="text" name="vistor_phone" class="form-control" placeholder="رقم جوال صاحب اليوزر" value="05" minlength="10" maxlength="10"/>
-                            </div>
-                            <div class="mb-3">
-                                <input required type="text" name="vistor_balance" class="form-control" placeholder="كم الرصيد في اليوزر"/>
-                            </div>
-                            <div class="mb-3">
-                                <input required type="text" name="vistor_count_slides" class="form-control" placeholder="كم عدد الشرائح الجديدة"/>
-                            </div>
-                            <div class="mb-3">
-                                <input required type="text" name="vistor_count_activity" class="form-control" placeholder="كم عدد التفعيلات"/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>رقم اليوزر</label>
+                                        <input type="text" name="vistor_code" class="form-control" placeholder="رقم اليوزر" value="Pos_" minlength="10" maxlength="10"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>رقم  جوال صاحب اليوزر</label>
+                                        <input type="text" name="vistor_phone" class="form-control" value="05" minlength="10" maxlength="10"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>كم الرصيد في اليوزر</label>
+                                        <input type="text" name="vistor_balance" class="form-control"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>كم عدد الشرائح الجديدة</label>
+                                        <input type="text" name="vistor_count_slides" class="form-control"/>
+                                    </div>
+        
+                                    <div class="mb-3">
+                                        <label>كم عدد التفعيلات</label>
+                                        <input type="text" name="vistor_count_activity" class="form-control" />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label>رقم هوية الموظف /البائع</label>
+                                        <input type="number" name="seller_identify_number" class="form-control"/>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>رقم المنشأة</label>
+                                        <input type="text" name="place_code" class="form-control" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>رقم السجل التجارى</label>
+                                        <input type="number" name="place_trade_number" class="form-control" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>تاريخ انتهاء السجل</label>
+                                        <input type="date" name="place_expire_date" class="form-control"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>رقم هوية المالك</label>
+                                        <input type="number" name="Owner_identify_number" class="form-control" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>تاريخ انتهاء هوية المالك</label>
+                                        <input type="date" name="Owner_ID_expiry_date" class="form-control" />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label>تاريخ انتهاء هوية الموظف  / البائع</label>
+                                        <input type="date" name="seller_ID_expiry_date" class="form-control"/>
+                                    </div>
+
+                                </div>
                             </div>
 
+
                             <div class="mb-3">
-                                <textarea name="notes" class="form-control" id="notes" cols="20" rows="10" placeholder="ملاحظات" required></textarea>
+                                <label>ملاحظات</label>
+                                <textarea name="notes" class="form-control" id="notes" cols="5" rows="5"></textarea>
                             </div>
 
                             <div class="mb-3">

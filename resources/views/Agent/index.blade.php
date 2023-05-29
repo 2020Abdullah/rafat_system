@@ -45,6 +45,13 @@
                             <td>عدد التفعيلات</td>
                             <td>تاريخ الزيارة</td>
                             <td>وقت الزيارة</td>
+                            <td>رقم المنشئة</td>
+                            <td>رقم السجل التجارى</td>
+                            <td>تاريخ انتهاء السجل</td>
+                            <td>رقم هوية المالك</td>
+                            <td>تاريخ انتهاء هوية المالك</td>
+                            <td>رقم هوية الموظف / البائع</td>
+                            <td>تاريخ انتهاء هوية الموظف / البائع</td>
                             <td>ملاحظات</td>
                             <td>الموقع</td>
                         </tr>
@@ -59,6 +66,13 @@
                                 <td>{{ $reports->vistor_count_activity }}</td>
                                 <td>{{ $reports->date }}</td>
                                 <td>{{ $reports->time }}</td>
+                                <td>{{ $reports->place_code }}</td>
+                                <td>{{ $reports->place_trade_number }}</td>
+                                <td>{{ $reports->place_expire_date }}</td>
+                                <td>{{ $reports->Owner_identify_number }}</td>
+                                <td>{{ $reports->Owner_ID_expiry_date }}</td>
+                                <td>{{ $reports->seller_identify_number }}</td>
+                                <td>{{ $reports->seller_ID_expiry_date }}</td>
                                 <td>{{ $reports->notes }}</td>
                                 <td>
                                     <button  type="button" class="btn main f-second fnt-xxs showloc" data-lat="{{ $reports->lat }}" data-long="{{$reports->long }}">عرض</button>

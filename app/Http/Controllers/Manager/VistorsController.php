@@ -13,7 +13,7 @@ class VistorsController extends Controller
 {
     public function index()
     {
-        $Allreports = Vistor::where('status', 1)->where('manager_id', auth('manager')->user()->id)->latest()->paginate(10);
+        $Allreports = Vistor::where('status', 1)->where('manager_id', auth('manager')->user()->id)->latest()->paginate(50);
         return view('manager.vistors.index', compact('Allreports'));
     }
 

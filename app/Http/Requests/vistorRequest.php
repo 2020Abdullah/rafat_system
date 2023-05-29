@@ -27,7 +27,13 @@ class vistorRequest extends FormRequest
             'vistor_count_slides' => 'required',
             'vistor_count_activity' => 'required',
             'lat' => 'required',
-            'long' => 'required',
+            'place_code' => 'required|numeric',
+            'place_trade_number' => 'required|numeric|digits:10',
+            'place_expire_date' => 'required|date',
+            'Owner_identify_number' => 'required|numeric|digits:10',
+            'Owner_ID_expiry_date' => 'required|date',
+            'seller_identify_number' => 'required|numeric|digits:10',
+            'seller_ID_expiry_date' => 'required|date',
         ];
     }
     public function messages()
@@ -39,6 +45,13 @@ class vistorRequest extends FormRequest
             'vistor_balance.required' => 'حقل رصيد اليوزر مطلوب',
             'vistor_count_slides.required' => 'حقل شرائح اليوزر مطلوب',
             'vistor_count_activity.required' => 'حقل عدد التفعيلات مطلوب',
+            'place_code.required' => 'رقم المنشئة مطلوب',
+            'place_trade_number.required' => 'رقم السجل التجارى مطلوب',
+            'place_expire_date.required' => 'تاريخ انتهاء السجل مطلوب',
+            'Owner_identify_number.required' => 'رقم هوية المالك مطلوب',
+            'Owner_ID_expiry_date.required' => 'تاريخ انتهاء هوية المالك مطلوب',
+            'seller_identify_number.required' => 'رقم هوية الموظف /البائع مطلوب',
+            'seller_ID_expiry_date.required' => 'تاريخ انتهاء هوية الموظف / البائع مطلوب',
         ];
     }
 }

@@ -866,7 +866,6 @@ body.modal-open main {
 .form-control {
   border: 3px solid #ced4da5c;
   border-radius: 0.65rem;
-  height: calc(1.9em + 0.75rem + 2px);
   line-height: 1.6 !important;
   box-shadow: 0 0 0px 1px #cecece inset;
 }

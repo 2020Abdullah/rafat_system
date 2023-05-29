@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 01, 2023 at 12:04 PM
+-- Generation Time: May 29, 2023 at 04:19 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.0
 
@@ -49,8 +49,8 @@ INSERT INTO `agents` (`id`, `name`, `email`, `email_verified_at`, `password`, `p
 (1, 'Ali Naser', 'Agent@example.com', NULL, '$2y$10$MSpEGI8dzjG6h3bMfGuPeelWjL7bxSYtHhhb.rvARZMKfEZ4UmWHu', '1681765873face4.jpg', 1, 1, NULL, '2023-04-15 23:14:33', '2023-05-01 08:34:40'),
 (2, 'Shawqi', 'Agent2@example.com', NULL, '$2y$10$Ohl6rf4GDqBO8rOcz6O3ou48RZS2pJozG3S6P1GdK997oOCJjfFWC', NULL, 1, 1, NULL, '2023-04-16 11:20:09', '2023-04-16 11:20:09'),
 (4, 'سمير', 'samer@gmail.com', NULL, '$2y$10$5P5gzJOuRncjyQocFUX2COPFVt2gfEHeHcFGmEZoDpJTV7xzRIjlu', NULL, 2, 1, NULL, '2023-04-18 09:06:00', '2023-04-18 09:06:00'),
-(5, 'ربيع', 'anas1@gmail.com', NULL, '$2y$10$h/BLCy9cBMyne/P6vb/7Ie2yxZKQvS1doLcs174SvinTkuJSdURdW', NULL, 3, 1, NULL, '2023-04-18 14:00:24', '2023-04-18 14:00:24'),
-(6, 'ali', 'ali@gmail.com', NULL, '$2y$10$q/aHsB6S7m6LH25Lv7Kf9enUTF6RsSV1rQNwRHwSBeD.iP6nb/lLq', NULL, 4, 1, NULL, '2023-04-18 14:15:26', '2023-05-01 08:20:32');
+(5, 'ربيع', 'anas1@gmail.com', NULL, '$2y$10$h/BLCy9cBMyne/P6vb/7Ie2yxZKQvS1doLcs174SvinTkuJSdURdW', NULL, 3, 1, NULL, '2023-04-18 14:00:24', '2023-05-07 15:42:19'),
+(6, 'ali', 'ali@gmail.com', NULL, '$2y$10$q/aHsB6S7m6LH25Lv7Kf9enUTF6RsSV1rQNwRHwSBeD.iP6nb/lLq', NULL, 4, 1, NULL, '2023-04-18 14:15:26', '2023-05-07 15:38:39');
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,7 @@ INSERT INTO `managers` (`id`, `name`, `email`, `email_verified_at`, `password`, 
 (1, 'abdallah', 'manager@example.com', NULL, '$2y$10$hgUSZRZAxIJ556033srkY.wWalzQy6NgI5nn8.NdvstJ.46eI.Oye', 1, '1681765640face3.jpg', 1, NULL, '2023-04-15 23:14:03', '2023-04-17 19:07:20'),
 (2, 'انس', 'anas@gmail.com', NULL, '$2y$10$polSRH3ySaoxO8d2O6q5Yuyu58vJbkYPO1fc/CTrF6tTQoPkkIuN2', 1, '1681794705IMG_20230417_210838.jpg', 1, NULL, '2023-04-18 09:02:41', '2023-04-18 09:11:45'),
 (3, 'بدر', 'badr@gmail.com', NULL, '$2y$10$pymhqcvM6YJOG02N/P7g3O1R0LbtF/mchDJEl6zFSf49DjiQcVy5K', 1, NULL, 1, NULL, '2023-04-18 09:03:46', '2023-04-18 09:03:46'),
-(4, 'Ahmed', 'ahmed@gmail.com', NULL, '$2y$10$bLqutVdVI9k5lwSZpYJS2OF0ZdH3gAKtxoIet.43aBNBb/mc21NR2', 1, NULL, 1, NULL, '2023-04-18 14:14:04', '2023-04-18 14:14:04');
+(4, 'Ahmed', 'ahmed@gmail.com', NULL, '$2y$10$bLqutVdVI9k5lwSZpYJS2OF0ZdH3gAKtxoIet.43aBNBb/mc21NR2', 1, NULL, 1, NULL, '2023-04-18 14:14:04', '2023-05-07 15:41:14');
 
 -- --------------------------------------------------------
 
@@ -122,7 +122,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2019_12_14_000001_create_personal_access_tokens_table', 2),
 (10, '2023_04_16_003359_create_managers_table', 2),
 (11, '2023_04_17_231041_create_agents_table', 3),
-(15, '2023_04_16_132949_create_vistors_table', 4);
+(16, '2023_04_16_132949_create_vistors_table', 4);
 
 -- --------------------------------------------------------
 
@@ -202,19 +202,26 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `ro
 
 CREATE TABLE `vistors` (
   `id` bigint UNSIGNED NOT NULL,
-  `vistor_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `vistor_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `vistor_balance` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `vistor_count_slides` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `vistor_count_activity` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vistor_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `vistor_phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vistor_balance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vistor_count_slides` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vistor_count_activity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lat` decimal(10,8) NOT NULL,
   `long` decimal(10,8) NOT NULL,
-  `date` date DEFAULT NULL,
-  `time` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `notes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `place_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'رقم المنشأة',
+  `place_trade_number` bigint DEFAULT NULL COMMENT 'رقم السجل التجارى',
+  `place_expire_date` date NOT NULL COMMENT 'تاريخ انتهاء السجل',
+  `Owner_identify_number` bigint NOT NULL COMMENT 'رقم هوية المالك ',
+  `Owner_ID_expiry_date` date NOT NULL COMMENT 'تاريخ انتهاء هوية المالك',
+  `seller_identify_number` bigint NOT NULL COMMENT 'رقم هوية الموظف / البائع',
+  `seller_ID_expiry_date` date NOT NULL COMMENT 'تاريخ انتهاء هوية الموظف  / البائع',
+  `notes` text COLLATE utf8mb4_unicode_ci,
+  `status` tinyint NOT NULL DEFAULT '1',
+  `date` date NOT NULL COMMENT 'تاريخ الزيارة',
+  `time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'وقت الزيارة',
   `Agent_id` bigint UNSIGNED NOT NULL,
   `manager_id` bigint UNSIGNED NOT NULL,
-  `status` tinyint NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -223,17 +230,9 @@ CREATE TABLE `vistors` (
 -- Dumping data for table `vistors`
 --
 
-INSERT INTO `vistors` (`id`, `vistor_code`, `vistor_phone`, `vistor_balance`, `vistor_count_slides`, `vistor_count_activity`, `lat`, `long`, `date`, `time`, `notes`, `Agent_id`, `manager_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, '2001', '010932521322', '1000', '10', '5', '30.14732740', '31.34840430', NULL, NULL, 'تم البيع', 1, 1, 0, '2023-04-17 10:52:02', '2023-04-29 05:41:14'),
-(2, '204', '34444344', '9876', '3', '1', '31.03201340', '30.46234820', NULL, NULL, 'test', 2, 1, 1, '2023-04-18 08:53:43', '2023-04-18 08:53:43'),
-(3, '1234', '0134678854', '7000', '4', '3', '31.03184020', '30.46229000', NULL, NULL, 'عم رافت صح الصح', 4, 2, 1, '2023-04-18 09:19:44', '2023-04-18 09:19:44'),
-(4, '2010', '0987654321', '4', '6', '7', '31.03134180', '30.46210110', NULL, NULL, 'test', 5, 3, 1, '2023-04-18 14:04:45', '2023-04-18 14:04:45'),
-(5, '55', '٠١٠٩٨٢٤٥٩١٨', '333', '4333', '555', '30.26700945', '31.49199324', NULL, NULL, 'Tast', 4, 2, 1, '2023-04-22 18:08:31', '2023-04-22 18:08:31'),
-(6, 'Pos_20', '05', '2000', '20', '10', '30.14734450', '31.34839830', NULL, NULL, 'تم البيع', 1, 1, 0, '2023-04-29 05:33:44', '2023-04-29 05:41:14'),
-(7, 'Pos_21', '0562148231', '10000', '50', '20', '30.14734460', '31.34839470', NULL, NULL, 'تم البيع', 1, 1, 1, '2023-04-29 05:40:40', '2023-04-29 05:40:40'),
-(10, 'Pos_300000', '0562141253', '3000', '30', '30', '30.14734500', '31.34839450', '2023-05-01', '11:44 AM', 'تم البيع', 2, 1, 1, '2023-05-01 08:44:01', '2023-05-01 08:44:01'),
-(11, 'Pos_400000', '0512412314', '400000', '40', '4', '30.14733950', '31.34839680', '2023-05-01', '1:46 PM', 'تم البيع', 2, 1, 1, '2023-05-01 10:46:15', '2023-05-01 10:46:15'),
-(12, 'Pos_500000', '0552312312', '500000', '50', '5', '30.14734050', '31.34839090', '2023-05-01', '2:54 PM', 'تم البيع', 2, 1, 1, '2023-05-01 11:54:08', '2023-05-01 11:54:08');
+INSERT INTO `vistors` (`id`, `vistor_code`, `vistor_phone`, `vistor_balance`, `vistor_count_slides`, `vistor_count_activity`, `lat`, `long`, `place_code`, `place_trade_number`, `place_expire_date`, `Owner_identify_number`, `Owner_ID_expiry_date`, `seller_identify_number`, `seller_ID_expiry_date`, `notes`, `status`, `date`, `time`, `Agent_id`, `manager_id`, `created_at`, `updated_at`) VALUES
+(1, 'Pos_', '05', '999999', '9999', '9999', '30.14732540', '31.34839230', '7016679909', 5950117933, '2023-05-31', 7016679909, '2023-05-31', 7016679909, '2023-05-31', 'تمت الزيارة', 1, '2023-05-29', '6:56 PM', 5, 3, '2023-05-29 15:56:49', '2023-05-29 15:56:49'),
+(2, 'Pos_324125', '0512412512', '1000', '1000', '10', '30.14732900', '31.34840890', '7016679909', 5950117933, '2023-05-30', 5950117933, '2023-05-30', 5950117933, '2023-05-30', 'تمت المهمة', 1, '2023-05-29', '7:05 PM', 5, 3, '2023-05-29 16:05:09', '2023-05-29 16:05:09');
 
 --
 -- Indexes for dumped tables
@@ -328,7 +327,7 @@ ALTER TABLE `managers`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -346,7 +345,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vistors`
 --
 ALTER TABLE `vistors`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

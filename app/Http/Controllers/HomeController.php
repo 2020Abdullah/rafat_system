@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-  
+
     public function adminHome()
     {
         $managerCount = Manager::count();
@@ -30,5 +30,4 @@ class HomeController extends Controller
         $vistorCount = Vistor::where('Agent_id', auth('agent')->user()->id)->count();
         return view('Agent.dashboard', compact('vistorCount'));
     }
-
 }

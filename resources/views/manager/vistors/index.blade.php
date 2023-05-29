@@ -47,57 +47,47 @@
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tr>
-                            <td>
-                                <input type="checkbox" name="checkbox" class="Allcheckbox" value="">
-                            </td>
                             <td>كود اليوزر</td>
                             <td>رقم جوال اليوزر</td>
                             <td>رصيد اليوزر</td>
                             <td>عدد الشرائح</td>
                             <td>عدد التفعيلات</td>
-                            <td>مطور المبيعات</td>
+                            <td>تاريخ الزيارة</td>
                             <td>وقت الزيارة</td>
+                            <td>رقم المنشئة</td>
+                            <td>رقم السجل التجارى</td>
+                            <td>تاريخ انتهاء السجل</td>
+                            <td>رقم هوية المالك</td>
+                            <td>تاريخ انتهاء هوية المالك</td>
+                            <td>رقم هوية الموظف /البائع</td>
+                            <td>تاريخ انتهاء الموظف /البائع</td>
                             <td>ملاحظات</td>
                             <td>الموقع</td>
-                            <td>اتخاذ إجراء</td>
                         </tr>
                         @foreach ($Allreports as $reports)
                             <input type="hidden" id="latitude" value="{{$reports->lat}}">
                             <input type="hidden" id="longitude" value="{{$reports->long}}">
                             <tr>
-                                <td>
-                                    <input type="checkbox" name="checkbox" class="checkbox" value="{{ $reports->id }}">
-                                </td>
                                 <td>{{ $reports->vistor_code }}</td>
                                 <td>{{ $reports->vistor_phone }}</td>
                                 <td>{{ $reports->vistor_balance }}</td>
                                 <td>{{ $reports->vistor_count_slides }}</td>
                                 <td>{{ $reports->vistor_count_activity }}</td>
-                                <td>{{ $reports->agent->name }}</td>
-                                <td>{{ Carbon\Carbon::parse($reports->created_at)->format('d-m-Y g:i:s A') }}</td>
+                                <td>{{ $reports->date }}</td>
+                                <td>{{ $reports->time }}</td>
+                                <td>{{ $reports->place_code }}</td>
+                                <td>{{ $reports->place_trade_number }}</td>
+                                <td>{{ $reports->place_expire_date }}</td>
+                                <td>{{ $reports->Owner_identify_number }}</td>
+                                <td>{{ $reports->Owner_ID_expiry_date }}</td>
+                                <td>{{ $reports->seller_identify_number }}</td>
+                                <td>{{ $reports->seller_ID_expiry_date }}</td>
                                 <td>{{ $reports->notes }}</td>
                                 <td>
                                     <button  type="button" class="btn main f-second fnt-xxs showloc" data-lat="{{ $reports->lat }}" data-long="{{$reports->long }}">عرض</button>
                                 </td>
-                                <td>
-                                    <a class="btn main f-danger fnt-xxs" href="{{ route('manager.vistor.destory', $reports->id) }}">حذف</a>
-                                </td>
                             </tr>
                         @endforeach
-                        <!-- Modal location -->
-                        <div class="modal fade" id="locationModel" data-bs-keyboard="true" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">موقع اليوزر</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="googleMap"></div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
                     </table>
                 </div>
                 <div class="d-flex">

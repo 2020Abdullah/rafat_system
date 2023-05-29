@@ -20,6 +20,11 @@ return new class extends Migration
             $table->string('vistor_count_activity');
             $table->decimal('lat', 10, 8);
             $table->decimal('long', 10, 8);
+            $table->string('place_code');
+            $table->date('place_expire_date');
+            $table->string('Owner_identify_number');
+            $table->date('Owner_ID_expiry_date');
+            $table->string('seller_ID');
             $table->text('notes')->nullable();
             $table->foreignId('Agent_id')->constrained('agents')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('manager_id')->constrained('managers')->cascadeOnDelete()->cascadeOnUpdate();
